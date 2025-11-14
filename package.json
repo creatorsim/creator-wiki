@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "honkit": "^6.1.4"
+  },
+  "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve"
+  }
+}
