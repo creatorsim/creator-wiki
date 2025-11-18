@@ -3,6 +3,7 @@
   "workspaces": {
     "": {
       "dependencies": {
+        "gitbook-plugin-flexible-alerts": "^1.0.4",
         "honkit": "^6.1.4",
       },
     },
@@ -169,6 +170,8 @@
     "get-intrinsic": ["get-intrinsic@1.3.0", "", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "es-define-property": "^1.0.1", "es-errors": "^1.3.0", "es-object-atoms": "^1.1.1", "function-bind": "^1.1.2", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-symbols": "^1.1.0", "hasown": "^2.0.2", "math-intrinsics": "^1.1.0" } }, "sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ=="],
 
     "get-proto": ["get-proto@1.0.1", "", { "dependencies": { "dunder-proto": "^1.0.1", "es-object-atoms": "^1.0.0" } }, "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g=="],
+
+    "gitbook-plugin-flexible-alerts": ["gitbook-plugin-flexible-alerts@1.0.4", "", {}, "sha512-1Cm2nVwSMjSHln/880w0m6jN2BTQCrlHIyWaJih+iVGRlqqUNuTqLRksmyDOtJhFoV7+6ja2NVj0JYV39q/aWQ=="],
 
     "gitbook-plugin-livereload": ["gitbook-plugin-livereload@0.0.1", "", {}, "sha512-+5xinicId2ZcbP6jBTFfQBnjz8nhoBgcOuQfKTEM6Yg9fBsmo2mxY6ubrx1b5ozuIMyfDLkSihx97A7+X+EtQQ=="],
 

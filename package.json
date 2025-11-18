@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "gitbook-plugin-flexible-alerts": "^1.0.4",
     "honkit": "^6.1.4"
   },
   "scripts": {

@@ -1,3 +1,4 @@
 {
-  "root": "./book"
+  "root": "./book",
+  "plugins": ["flexible-alerts"]
 }
