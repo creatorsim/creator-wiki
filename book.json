@@ -1,4 +1,13 @@
 {
   "root": "./book",
-  "plugins": ["flexible-alerts", "mermaid-md-adoc"]
+  "plugins": ["flexible-alerts", "mermaid-md-adoc"],
+  "pluginsConfig": {
+    "flexible-alerts": {
+      "important": {
+        "label": "Important",
+        "icon": "fa fa-message",
+        "className": "info"
+      }
+    }
+  }
 }
