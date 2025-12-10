@@ -64,6 +64,9 @@
     * [Timers](teaching-resources/custom-architectures.md#timers)
     * [Devices](teaching-resources/custom-architectures.md#devices)
 * [CREATOR API (CAPI)](teaching-resources/CAPI.md)
+    * [Memory](teaching-resources/CAPI.md#memory)
+    * [System calls](teaching-resources/CAPI.md#system-calls)
+    * [Validation](teaching-resources/CAPI.md#validation)
 
 
 ## Development Guide

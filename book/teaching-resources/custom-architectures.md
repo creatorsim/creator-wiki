@@ -10,16 +10,23 @@ An architecture file is a YAML file that describes the architecture's properties
 
 The actual definition for an instruction is simple javascript code to manipulate the simulator state. Within this code, you also have a `registers` local value to access the registers (e.g. `registers.PC`, or `registers[value]`), as well as [`CAPI`](CAPI.md), which allows you to interact with the simulator.
 
+
 > [!IMPORTANT]
-> The values stored in the registers are [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Take that into account when reading or writting values:
+> The values stored in the registers are [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt). Take that into account when reading or writing values:
 > ```js
 > const foo = registers.PC;  // 420n
 > registers.PC = foo + 1n;   // 421n
 > ```
 
 
+Let's define a simple 8-bit architecture with a few instructions. The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
 
-Let's define a simple 8-bit architecture with a few instructions. The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`; this value is the offset that we'll add to the program counter while executing an instruction, in this case, that value will be the real value, that is, the address of the next instruction. The entrypoint will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
+> [!IMPORTANT]
+> The value of the program counter register (`program_counter`) inside the instruction definitions is affected by the `pc_offset`.
+> 
+> `pc_offset` is the offset that we'll add to the value of program counter the instruction "sees".
+> 
+> E.g. if `pc_offset` is `-4`, while executing an instruction at `0x0`, the "real" PC is `0x4` (because of the fetch performed at the start of the cycle), and `registers.pc` (the "virtual" PC) will be `0x0`.
 
 ```yaml
 version: 2.0.0

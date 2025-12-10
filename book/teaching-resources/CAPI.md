@@ -1,5 +1,181 @@
 # CREATOR API (CAPI)
 
+CAPI allows instruction definitions to interact with custom CREATOR functions.
+
+> [!TIP]
+> `CAPI` is a global variable, so you can access it from your browser's developer console if you're using the web application.
+
+
+## Memory
+Interaction with CREATOR's memory.
+
+
+### `CAPI.MEM.write`
+```ts
+CAPI.MEM.write(
+  address: bigint,
+  bytes: number,
+  value: bigint,
+  reg_name?: string,
+  hint?: string,
+  noSegFault: boolean = true,
+): void { }
+```
+
+Writes a specific `value` to the specified `address` and number of `bytes`. You can provide extra information about which register used to hold the value (`reg_name`), or any hint about what that value might be (`hint`). To enable checking if the address is in a writable segment, set `noSegFault` to false.
+
+E.g.:
+```js
+CAPI.MEM.write(0x12n, 1, 0x200000n, "t0");
+```
+
+
+### `CAPI.MEM.read`
+```ts
+CAPI.MEM.read(
+  address: bigint,
+  bytes: number,
+  reg_name: string,
+  noSegFault: boolean = true,
+): bigint { }
+```
+
+Reads a specific number of `bytes` in the specified `address` and returns them. You can provide extra information about which register will hold the value (`reg_name`). To enable checking if the address is in a readable segment, set `noSegFault` to false.
+
+E.g.:
+```js
+CAPI.MEM.read(0x200000n, 1, "t0");
+```
+
+
+<!--
+### `CAPI.MEM.alloc`
+> [!WARNING]
+> This function is not currently implemented.
+
+```ts
+CAPI.MEM.alloc(bytes: number): number { }
+```
+
+Allocates the specified `size` number of bytes in the heap.
+-->
+
+
+
+### `CAPI.MEM.addHint`
+
+```ts
+CAPI.MEM.addHint(address: bigint, hint: string, sizeInBits?: number): boolean { }
+```
+
+Adds a `hint` (description of what the address holds) for the specified memory `address`. If a hint already exists at the specified address, it replaces it. You can optionally specify the size of the stored type in bits (`sizeInBits`). Returns `true` if the hint was successfully added, else `false`.
+
+E.g.:
+```js
+CAPI.MEM.addHint(0x200000n, "float64", 64);
+```
+
+
+## System calls
+CREATOR's system calls.
+
+
+### `CAPI.SYSCALL.exit`
+
+```ts
+CAPI.SYSCALL.exit(): void { }
+```
+
+Terminates the execution of the program.
+
+E.g.:
+```js
+CAPI.SYSCALL.exit();
+```
+
+
+
+### `CAPI.SYSCALL.print`
+
+```ts
+CAPI.SYSCALL.print(
+  value: number | bigint,
+  type: "int32" | "float" | "double" | "char" | "string",
+): void { }
+```
+
+Prints the specified `value` of the specified `type` to the console.
+
+Supported types are:
+- `"int32"`: signed 32-bit integer
+- `"float"` / `"double"`: [JS's Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+- `"char"`: UTF-16 character value
+- `"string"`: address of a null-terminated array of 1-byte chars
+
+E.g.:
+```js
+CAPI.SYSCALL.print(0x45n, "char");
+```
+
+
+### `CAPI.SYSCALL.read`
+
+```ts
+CAPI.SYSCALL.read(
+  dest_reg_info: string,
+  type: "int32" | "float" | "double" | "char" | "string",
+  aux_info?: string,
+): void { }
+```
+
+Reads the specified value `type` from the console and stores it in the specified register by name (`dest_reg_info`).
+
+Supported types are:
+- `"int32"`: signed 32-bit integer
+- `"float"` / `"double"`: [JS's Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+- `"char"`: UTF-16 character value
+- `"string"`: `aux_info` is the name of the register that holds the address of a null-terminated array of 1-byte chars
+
+E.g.:
+```js
+CAPI.SYSCALL.read("a0", "char");
+CAPI.SYSCALL.read("a0", "string", "a1");
+```
+
+
+
+### `CAPI.SYSCALL.get_clk_cycles`
+
+```ts
+CAPI.SYSCALL.get_clk_cycles(): number { }
+```
+
+Returns the number of clock cycles that have passed since the program started.
+
+E.g.:
+```js
+CAPI.SYSCALL.get_clk_cycles();
+```
+
+
+
+<!--
+### `CAPI.SYSCALL.sbrk`
+
+```ts
+CAPI.SYSCALL.sbrk(value1: string, value2: string): void { }
+```
+
+
+E.g.:
+```js
+CAPI.SYSCALL.sbrk("a0", "v0");
+```
+-->
+
+## Validation
+
+
 <!--
 ### Exceptions
 
