@@ -242,6 +242,148 @@ CAPI.SYSCALL.endFrame();
 ## Floating point
 
 
+### `CAPI.FP.split_double`
+
+```ts
+CAPI.FP.split_double(reg: bigint, index: 0 | 1): string { }
+```
+
+Given a double precision IEEE 754 value `reg`, gets the 32-bits most significant (`index=1`) bits or the least significant bits (`index=0`). It returns it as a string of bits.
+
+E.g.:
+```js
+const foo = CAPI.FP.split_double(registers.t0, 1);
+```
+
+
+### `CAPI.FP.uint2float32`
+
+```ts
+CAPI.FP.uint2float32(value: number): number { }
+```
+
+Transforms the unsigned integer `value` to a single precision IEEE754 [JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number).
+
+E.g.:
+```js
+CAPI.FP.uint2float32(5);
+```
+
+
+### `CAPI.FP.float322uint`
+
+```ts
+CAPI.FP.float322uint(value: number): bigint { }
+```
+
+Transforms the single precision floating point ([JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)) `value` into an unsigned integer.
+
+E.g.:
+```js
+CAPI.FP.uint2float32(5.0);
+```
+
+
+### `CAPI.FP.int2uint`
+
+```ts
+CAPI.FP.int2uint(
+  value: number | bigint,
+  bits: number = 64,
+): bigint { }
+```
+
+Transforms a signed integer ([JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)) `value` into an unsigned integer of `bits` number of bits.
+
+E.g.:
+```js
+CAPI.FP.int2uint(-5);
+```
+
+
+### `CAPI.FP.uint2int`
+
+```ts
+CAPI.FP.uint2int(value: number | bigint): bigint { }
+```
+
+Transforms an unsigned integer `value` into a signed integer ([JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)) of `bits` number of bits.
+
+E.g.:
+```js
+CAPI.FP.uint2int(5);
+```
+
+
+### `CAPI.FP.uint2float64`
+
+```ts
+CAPI.FP.uint2float64(value0: number | bigint, value1?: number): number { }
+```
+
+Transforms an unsigned integer `value0` into a signed integer to a 64-bit float ([JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)). Supports two calling conventions:
+1. Single `value0` argument: converts a 64-bit integer directly
+2. Two 32-bit arguments: converts low (`value0`) and high (`value1`) 32-bit parts.
+
+E.g.:
+```js
+CAPI.FP.uint2float64(5);
+```
+
+
+### `CAPI.FP.float642uint`
+
+```ts
+CAPI.FP.float642uint(value: number): [number, number] { }
+```
+
+Transforms the double precision floating point ([JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)) `value` into an unsigned integer.
+
+E.g.:
+```js
+CAPI.FP.float642uint(5.0);
+```
+
+
+### `CAPI.FP.check_ieee`
+
+```ts
+CAPI.FP.check_ieee(sign: string, exponent: string, mantissa: string): number { }
+```
+
+Check the type of number is in IEEE 754 format. Returns a 10-bit mask where the position of the set bit indicates the type of the IEEE 754 number:
+- 0 -> -inf
+- 1 -> -normalized number
+- 2 -> -non-normalized number
+- 3 -> -0
+- 4 -> +0
+- 5 -> +non-normalized number
+- 6 -> +normalized number
+- 7 -> +inf
+- 8 -> signaling NaN
+- 9 -> quiet NaN
+
+E.g.:
+```js
+CAPI.FP.check_iee(parseInt(a[0]), parseInt(a.slice(1,9), 2), parseInt(a.slice(10), 2));
+```
+
+
+### `CAPI.FP.float2bin`
+
+```ts
+CAPI.FP.float2bin(f: number): string { }
+```
+
+Transforms the single precision floating point [JS Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) `f` into a binary string.
+
+E.g.:
+```js
+CAPI.FP.float2bin(5.0);
+```
+
+
+
 ## Registers
 
 

@@ -57,7 +57,7 @@ After assembly completes:
 - Pseudo-instruction expansion
 - All architectures
 
-**Location**: `src/core/assembler/assembler.mjs`
+**Location**: `src/core/assembler/assembler.mts`
 
 ### sjasmplus (Z80)
 

@@ -63,7 +63,7 @@ src/
 │   ├── events.mjs         # Event system
 │   │
 │   ├── assembler/         # Assembly compilation
-│   │   ├── assembler.mjs  # Core assembler
+│   │   ├── assembler.mts  # Core assembler
 │   │   ├── creatorAssembler/  # Native assembler
 │   │   ├── sjasmplus/     # Z80 assembler
 │   │   └── rasm/          # Alternative Z80
