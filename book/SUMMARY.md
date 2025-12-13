@@ -1,7 +1,7 @@
 # Summary
 
 ## Getting Started
-* [Introduction](README.md)
+* [Introduction](introduction.md)
 
 ## Web User Guide
 * [Overview](web/overview.md)
@@ -31,7 +31,7 @@
 * [Execution Control](web/execution.md)
 
 ## CLI User Guide
-* [Overview](cli/README.md)
+* [Overview](cli/overview.md)
 * [Installation](cli/installation.md)
 * [Command-Line Options](cli/command-line-options.md#command-line-options)
     * [Required Options](cli/command-line-options.md#required-options)
@@ -48,14 +48,14 @@
 
 
 ## Architecture Guides
-* [Overview](architecture/README.md)
+* [Overview](architecture/overview.md)
     * [RISC-V](architecture/riscv.md)
     * [MIPS](architecture/mips.md)
     * [Z80](architecture/z80.md)
 
 
 ## Teaching Resources
-* [Overview](teaching-resources/README.md)
+* [Overview](teaching-resources/overview.md)
 * [Snapshots](teaching-resources/snapshots.md)
 * [Validating program execution](teaching-resources/validator.md)
 * [Creating Custom Architectures](teaching-resources/custom-architectures.md)
@@ -64,18 +64,18 @@
     * [Privileged Instructions](teaching-resources/custom-architectures.md#privileged-instructions)
     * [Timers](teaching-resources/custom-architectures.md#timers)
     * [Devices](teaching-resources/custom-architectures.md#devices)
-* [CREATOR API (CAPI)](teaching-resources/CAPI.md)
-    * [Memory](teaching-resources/CAPI.md#memory)
-    * [System calls](teaching-resources/CAPI.md#system-calls)
-    * [Validation](teaching-resources/CAPI.md#validation)
-    * [Stack](teaching-resources/CAPI.md#stack)
-    * [Floating point](teaching-resources/CAPI.md#floating-point)
-    * [Registers](teaching-resources/CAPI.md#registers)
-    * [Architecture](teaching-resources/CAPI.md#architecture)
-        * [RISC-V](teaching-resources/CAPI.md#risc-v)
-        * [MIPS](teaching-resources/CAPI.md#mips)
-        * [Z80](teaching-resources/CAPI.md#z80)
-    * [Interrupts](teaching-resources/CAPI.md#interrupts)
+* [CREATOR API (CAPI)](teaching-resources/capi.md)
+    * [Memory](teaching-resources/capi.md#memory)
+    * [System calls](teaching-resources/capi.md#system-calls)
+    * [Validation](teaching-resources/capi.md#validation)
+    * [Stack](teaching-resources/capi.md#stack)
+    * [Floating point](teaching-resources/capi.md#floating-point)
+    * [Registers](teaching-resources/capi.md#registers)
+    * [Architecture](teaching-resources/capi.md#architecture)
+        * [RISC-V](teaching-resources/capi.md#risc-v)
+        * [MIPS](teaching-resources/capi.md#mips)
+        * [Z80](teaching-resources/capi.md#z80)
+    * [Interrupts](teaching-resources/capi.md#interrupts)
 
 
 ## Development Guide

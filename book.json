@@ -2,6 +2,9 @@
   "root": "./book",
   "title": "CREATOR documentation",
   "author": "CREATOR Team",
+  "structure": {
+    "readme": "introduction.md"
+  },
   "plugins": ["alerts", "mermaid-md-adoc"],
   "pluginsConfig": {
     "alerts": {
