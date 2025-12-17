@@ -22,7 +22,7 @@ At the moment, CREATOR support this processors and development boards:
 
 This is Target Flash menu, with all its buttons explained:
 
-<img src="image/target-flash/1765964687002.png" width="500" />
+<img src="image/target-flash/1765964639068.png" width="500" />
 
 1. **Target Board**: Select between the ESP32 devices available
 2. **Target Port:** Checkout how does your device recognises UART device connection
@@ -212,7 +212,7 @@ To use this is necesary UART and JTAG ports have the correct rules and users ass
       5. Add openOCD path as a enviroment variable pressing NEW
       6. ![1765971134441](image/target-flash/1765971134441.png)
    6. **Run the image**:
-   7. 1. Click the "Run" button
+      1. Click the "Run" button
       2. Click the **"Optional settings"** button
       3. **Open** this ports:
 
@@ -244,4 +244,3 @@ To use this is necesary UART and JTAG ports have the correct rules and users ass
             `.\openocd_start.bat esp32c3`
 
             ![1765971301940](image/target-flash/1765971301940.png)
-      4.
