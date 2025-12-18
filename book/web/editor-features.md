@@ -12,17 +12,17 @@ Developers can extend or override the default syntax highlighting by creating th
 
 As you type, the editor suggests completions for instructions, registers, and labels. These suggestions adapt to the currently selected architecture.
 
-![Editor Auto-Completion](img/editor_autocomplete.png)
+![Editor Auto-Completion](img/editor/autocomplete.png)
 *Figure: Auto-completion suggestions for RISC-V instructions.*
 
 ## Help Tooltips
 Hover over instructions to see detailed help tooltips, including syntax, description, and usage examples.
-![Editor Help Tooltip](img/editor_help.png)
+![Editor Help Tooltip](img/editor/help.png)
 *Figure: Help tooltip for the `ADD` instruction in RISC-V.*
 
 ## Go to Definition/References
 Right-click a label and select "Go to Definition" to jump to its declaration. Right-click and select "Find All References" to see all usages of that label in your code.
-![Editor References](img/editor_references.png)
+![Editor References](img/editor/references.png)
 *Figure: Finding all references to a label in the code.*
 
 ## Code Comments
@@ -53,11 +53,11 @@ Common errors include:
 
 Hover over the squiggly lines to see detailed error messages.
 
-![Editor Error Indicators](img/editor_hovererror.png)
+![Editor Error Indicators](img/editor/hovererror.png)
 *Figure: Error and warning indicators in the editor.*
 
 ## Vim Mode
 Advanced users can enable Vim keybindings by clicking the "Vim" button in the editor toolbar. This activates Vim mode, allowing users to navigate and edit code using Vim commands. Custom keybinding can also be configured in the settings.
 
-![Editor Vim Mode](img/editor_vim.png)
+![Editor Vim Mode](img/editor/vim.png)
 *Figure: Vim mode enabled in the editor.*

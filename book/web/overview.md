@@ -2,7 +2,7 @@
 
 CREATOR is a browser-based assembly programming environment that requires no installation. It provides a complete development and debugging environment for multiple architectures directly in your web browser.
 
-![Web Interface](./img/simulator_default.png)
+![Web Interface](./img/simulator/default.png)
 *Figure: CREATOR main interface*
 
 

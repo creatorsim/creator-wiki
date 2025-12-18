@@ -8,13 +8,13 @@ The execution control panel allows you to run, step through, and reset your asse
 - **Reset**: Stops execution and resets the program state to the beginning.
 - **Pause**: Temporarily halts execution, allowing you to inspect the current state.
 
-![Execution Controls](img/simulator_controls.png)
+![Execution Controls](img/simulator/controls.png)
 *Figure: Execution control buttons in the simulator panel.*
 
 ## Breakpoints
 CREATOR supports breakpoints to help with debugging. To set a breakpoint, click on any instruction in the instruction list. A red dot will appear next to the instruction, indicating an active breakpoint. When the program execution reaches a breakpoint, it will pause, allowing you to inspect registers, memory, and other state information.
 
-![Breakpoint Example](img/simulator_breakpoint.png)
+![Breakpoint Example](img/simulator/breakpoint.png)
 *Figure: Execution paused at a breakpoint.*
 
 ## Execution Modes
