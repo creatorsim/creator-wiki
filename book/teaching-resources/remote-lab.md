@@ -2,7 +2,10 @@
 
 The remote laboratory allows users to remotely execute their programs on real hardware through the use of multiple [CREATOR Gateways](../web/gateway.md).
 
-![](img/remote_lab.svg)
+> [!IMPORTANT]
+> Currently, only the [ESP32 Gateway](../web/gateway.md#executing-the-esp32-gateway) is supported.
+
+![CREATOR Remote Laboratory diagram](img/remote_lab.svg)
 
 _Figure: CREATOR Remote Laboratory_
 

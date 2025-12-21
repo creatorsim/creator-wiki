@@ -11,7 +11,7 @@ bun run build
 
 To deploy it, with [Bun](https://bun.sh/)[^1], run:
 ```
-bun run serve
+bun serve
 ```
 
 
