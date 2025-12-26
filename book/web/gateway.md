@@ -50,7 +50,7 @@ For more information, see the [IDF documentation](https://docs.espressif.com/pro
     ```
 6. Run the container:
   ```bash
-    docker run --init -it --device="rfc2217://host.docker.internal:4000?ign_set_control" -p 8080:8080 -p 5000:5000 --name creator-gateway-esp32 creatorsim/creator-gateway-esp32
+    docker run --init -it -p 8080:8080 -p 5000:5000 --name creator-gateway-esp32 creatorsim/creator-gateway-esp32
   ```
 
   > [!TIP]
