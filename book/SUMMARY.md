@@ -36,6 +36,10 @@
     * [Native execution](web/gateway.md#native-execution-linux-only)
   * [Executing the SBC gateway](web/gateway.md#executing-the-sbc-gateway)
   * [User Interface](web/gateway.md#user-interface)
+  
+    <!--
+  * [Arduino](web/arduino.md#arduino-creator-module)
+   -->
 
 ## CLI User Guide
 * [Overview](cli/overview.md)
@@ -91,6 +95,7 @@
 * [Architecture overview](development/overview.md)
 * [Web Application](development/web.md)
     * [Vue 3 tricks](development/vue-tricks.md)
+
 
 
 
