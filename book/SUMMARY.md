@@ -36,10 +36,7 @@
     * [Native execution](web/gateway.md#native-execution-linux-only)
   * [Executing the SBC gateway](web/gateway.md#executing-the-sbc-gateway)
   * [User Interface](web/gateway.md#user-interface)
-  
-    <!--
-  * [Arduino](web/arduino.md#arduino-creator-module)
-   -->
+* [Arduino module (CREATino))](web/arduino.md)
 
 ## CLI User Guide
 * [Overview](cli/overview.md)

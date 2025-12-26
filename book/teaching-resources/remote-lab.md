@@ -62,7 +62,8 @@ services:
     tty: true
 ```
 
-The configuration of the target boards is placed in `config/deployment.json`. You must provide the type of board (`target_board`), the USB port of the board (`target_port`), and the URL of the gateway server (`target_url`). As we're doing everything with Docker Compose, we can just use their container names.
+The configuration of the target boards is placed in `config/deployment.json`. You must provide the type of board (`target_board`), the USB port of the board (`target_port`), and the URL of the gateway server (`target_url`). As we're doing everything with Docker Compose, we can just use their container names and prevent exposing the ports to `localhost`.
+
 E.g.:
 ```json
 {
