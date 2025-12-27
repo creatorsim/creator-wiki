@@ -3,7 +3,7 @@
 ## Installing CREATOR CLI
 ### Installation via precompiled Binary
 The easiest way to get started with the CLI version is to use the precompiled binaries. They include everything you need to run CREATOR without additional dependencies.
-Download the latest precompiled binary for your OS from the [releases page]({{book.repo}}/releases)
+Download the latest precompiled binary for your OS from the [releases page](https://github.com/creatorsim/creator/releases)
 and place it in a directory included in your system's PATH as `creator-cli`.
 
 You're all set! You can verify the installation by running:
@@ -64,7 +64,7 @@ CREATOR requires architecture definition files to simulate different processors.
 
 ### Default Architectures
 
-The repository includes several architecture files in the `architecture/` directory. The [releases]({{book.repo}}/releases) also include an `architectures.zip` file with the same contents.
+The repository includes several architecture files in the `architecture/` directory. The [releases](https://github.com/creatorsim/creator/releases) also include an `architectures.zip` file with the same contents.
 
 Currently, the following architectures are provided:
 - `RV32IMFD.yml` - RISC-V 32-bit (with interrupts)

@@ -7,7 +7,7 @@ For this, you first need to define a YAML validator file. This file must contain
 ## Validator File
 
 > [!NOTE]
-> We provide a [JSON schema](https://json-schema.org/) for the validator file at {{book.appUrl}}/schema/validator-file.json.
+> We provide a [JSON schema](https://json-schema.org/) for the validator file at https://creatorsim.github.io/creator/schema/validator-file.json.
 
 
 The validator file is a YAML file that can contain the following fields:

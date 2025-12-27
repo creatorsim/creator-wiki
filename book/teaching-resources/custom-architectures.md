@@ -6,7 +6,7 @@ CREATOR supports defining custom architectures through YAML configuration files.
 An architecture file is a YAML file that describes the architecture's properties, including its instruction set, registers, memory layout, and other relevant details. Instructions are defined with their binary encoding, assembly syntax, and semantics.
 
 > [!NOTE]
-> We provide a [JSON schema](https://json-schema.org/) for the architecure file at {{book.appUrl}}/schema/architecture.json.
+> We provide a [JSON schema](https://json-schema.org/) for the architecure file at https://creatorsim.github.io/creator/schema/architecture.json.
 
 The actual definition for an instruction is simple javascript code to manipulate the simulator state. Within this code, you also have a `registers` local value to access the registers (e.g. `registers.PC`, or `registers[value]`), as well as [`CAPI`](CAPI.md), which allows you to interact with the simulator.
 

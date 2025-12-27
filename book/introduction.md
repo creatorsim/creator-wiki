@@ -1,10 +1,10 @@
 # CREATOR — didaCtic and geneRic assEmbly progrAmming simulaTOR
 
-Welcome to the CREATOR documentation! [CREATOR]({{book.webpageUrl}}) is a comprehensive, open-source assembly programming simulator designed for education and development across multiple computer architectures.
+Welcome to the CREATOR documentation! [CREATOR](https://creatorsim.github.io/) is a comprehensive, open-source assembly programming simulator designed for education and development across multiple computer architectures.
 
 ### 👨‍🎓 Students, start here!
 New to CREATOR? Get up and running quickly:
-1. **[Try it now in your browser]({{book.appUrl}})** - No installation needed!
+1. **[Try it now in your browser](https://creatorsim.github.io/creator)** - No installation needed!
 2. Learn about the **[Web Interface](web/user-interface.md)** or **[CLI Interface](cli/README.md)** to navigate the simulator
 3. Check our **[Architecture Guides](architecture/README.md)**
 

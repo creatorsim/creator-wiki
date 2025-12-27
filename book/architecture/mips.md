@@ -5,12 +5,4 @@
 
 
 
-## Registers
-
-
-
-## Instructions
-
-
-
-## Interrupts
+## System calls

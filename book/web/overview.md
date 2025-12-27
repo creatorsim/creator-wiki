@@ -7,7 +7,7 @@ CREATOR is a browser-based assembly programming environment that requires no ins
 
 
 ## Access
-Visit **{{book.appUrl}}** to use CREATOR online.
+Visit **https://creatorsim.github.io/creator** to use CREATOR online.
 
 
 ## Features

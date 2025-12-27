@@ -1,6 +1,9 @@
 # CREATOR Gateway
 CREATOR supports the execution of RISC-V programs in real hardware devices.
 
+> [!NOTE]
+> We also support our [predefined RISC-V system calls](../architecture/riscv.md#system-calls)
+
 
 ## Supported devices
 CREATOR supports [Espressif ESP32](https://www.espressif.com/en/products/socs/esp32) development boards and RISC-V SBCs.
@@ -267,7 +270,7 @@ Create a new `/etc/udev/rules.d/99-Espressif.rules` file (with `sudo`!):
   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", GROUP="uucp"
   ```
 
-For more information, see the [JTAG documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/establish-serial-connection.html)
+For more information, see the [JTAG documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/establish-serial-connection.html).
 
 
 
@@ -282,46 +285,42 @@ For more information, see the [JTAG documentation](https://docs.espressif.com/pr
 1. Install the OS following the SBC manufacturer's instructions
 2. Create the **default folder** where your CREATOR projects will be saved, e.g. `~/creator`
 3. Ensure you provide the **correct rights** to the directory
-
-```
+  ```bash
   sudo chown $USER:$USER ~/creator
   sudo chmod u+rwx ~/creator
-```
-
+  ```
 4. **Connect the SBC to the Internet** via Ethernet or Wifi if possible.
-
-> [!TIP]
-> Depending on the SBC's configuration, its IP may change from time to time. Check its private IP with `ip a` before each use.
-> An example IP would be `10.117.129.219`.
-
+  > [!TIP]
+  > Depending on the SBC's configuration, its IP may change from time to time. Check its private IP with `ip a` before each use.
+  > An example IP would be `10.117.129.219`.
 6. Check the SSH service status:
-
-```bash
+  ```bash
   systemctl status ssh
-```
-
+  ```
 7. Check your username with `whoami`. Typically, it's `ubuntu`.
 8. Connect to the SBC from your computer via SSH:
   ```
   ssh <user>@<IP>
   ```
 
-> [!TIP]
-> Every time an SSH connection is made, the system will ask for a password. This can be overridden by copying your computer's SSH keys to the SBC.
->
-> 1. Create a new SSH key in your computer:
->    ```
->    ssh-keygen -t rsa -b 4096
->    ```
-> 2. Copy the key to the SBC
->    ```
->    ssh-copy-id <user>@<IP>
->    ```
+  > [!TIP]
+  > Every time an SSH connection is made, the system will ask for a password. This can be overridden by copying your computer's SSH keys to the SBC.
+  >
+  > 1. Create a new SSH key in your computer:
+  >    ```
+  >    ssh-keygen -t rsa -b 4096
+  >    ```
+  > 2. Copy the key to the SBC
+  >    ```
+  >    ssh-copy-id <user>@<IP>
+  >    ```
 
 9. Download and unzip the [SBC gateway](https://github.com/creatorsim/creator-gateway-sbc/releases/tag/latest) in the SBC
 10. Set up the gateway (inside the gateway folder):
 11. Create a new [Python virtual environment](https://docs.python.org/3/library/venv.html):
-    ``python3 -m venv .venv/ source .venv/bin/activate``
+    ```bash
+    python3 -m venv .venv/ source .venv/bin/activate
+    ```
 12. Install the dependencies:
     ```bash
     pip3 install -r requirements.txt
@@ -353,14 +352,14 @@ First, select your **device type** (ESP32 or SBC) and **target board**.
 Then, provide the **target information**:
 
 - ESP32
-  1. **Target Port:** Port of the device's UART connection.
+  1. **Target port:** Port of the device's UART connection.
      The default values are:
      - **Linux:** `/dev/ttyUSB0`
      - **macOS:** `/dev/cu.usbserial-10`
-     - **Windows:** `COM3`
+     - **Windows:** `rfc2217://host.docker.internal:4000?ign_set_control`
 - SBC
-  1. **Target User**: User and IP address of the SBC (`<user>@<ip>`)
-  2. **Target Location**: Location of the project folder (e.g. `~/creator`)
+  1. **Target user**: User and IP address of the SBC (`<user>@<ip>`)
+  2. **Target location**: Location of the project folder (e.g. `~/creator`)
 
 Finally, provide the **flash URL**, the URL address of the gateway. By default, `https:localhost:8080`.
 

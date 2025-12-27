@@ -17,10 +17,5 @@
   },
   "styles": {
     "website": "styles/website.css"
-  },
-  "variables": {
-    "webpageUrl": "https://creatorsim-community.github.io/",
-    "appUrl": "https://creatorsim-community.github.io/creator-beta",
-    "repo": "https://github.com/creatorsim-community/creator-beta"
   }
 }

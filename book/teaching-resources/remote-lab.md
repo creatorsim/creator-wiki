@@ -1,4 +1,4 @@
-# CREATOR Remote Laboratory
+# Setting up the Remote Laboratory
 
 The remote laboratory allows users to remotely execute their programs on real hardware through the use of multiple [CREATOR Gateways](../web/gateway.md).
 

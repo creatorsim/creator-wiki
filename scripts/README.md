@@ -14,9 +14,8 @@ It will output a `main.tex` file as well as other folders.
 As the text contains Unicode, in its current form it won't compile unless using [XeTeX](https://xetex.sourceforge.net/)/[LuaTeX](https://www.luatex.org/).
 
 Things that need to be cleaned up in the resulting LaTeX files:
-- [ ] Alerts (`!NOTE` / `!INFO` / `!TIP`)
+- [ ] Alerts (`!NOTE` / `!IMPORTANT` / `!TIP` / `!WARNING`)
 - [ ] Multi-line code blocks
-- [ ] Variables (`{{book.appUrl}}` / `{{book.repo}}` / `{{book.webpageUrl}}`)
 - [ ] Footnotes (`[^1]`)
 - [ ] Enumerated / non-enumerated lists
 - [ ] Emojis (Unicode)

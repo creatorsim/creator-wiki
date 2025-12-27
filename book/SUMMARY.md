@@ -32,11 +32,14 @@
 * [Gateway](web/gateway.md)
   * [Supported devices](web/gateway.md#supported-devices)
   * [Executing the ESP32 gateway](web/gateway.md#executing-the-esp32-gateway)
+    <!--
     * [Docker execution](web/gateway.md#docker-execution)
     * [Native execution](web/gateway.md#native-execution-linux-only)
+    -->
   * [Executing the SBC gateway](web/gateway.md#executing-the-sbc-gateway)
   * [User Interface](web/gateway.md#user-interface)
-* [Arduino module (CREATino))](web/arduino.md)
+* [Remote Laboratory](web/remote-lab.md)
+<!-- * [Arduino module (CREATino)](web/arduino.md) -->
 
 ## CLI User Guide
 * [Overview](cli/overview.md)
@@ -72,7 +75,7 @@
     * [Privileged Instructions](teaching-resources/custom-architectures.md#privileged-instructions)
     * [Timers](teaching-resources/custom-architectures.md#timers)
     * [Devices](teaching-resources/custom-architectures.md#devices)
-* [Remote Laboratory](teaching-resources/remote-lab.md)
+* [Setting up the Remote Laboratory](teaching-resources/remote-lab.md)
 * [CREATOR API (CAPI)](teaching-resources/capi.md)
     * [Memory](teaching-resources/capi.md#memory)
     * [System calls](teaching-resources/capi.md#system-calls)

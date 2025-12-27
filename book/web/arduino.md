@@ -478,7 +478,7 @@ On the other hand, we will use the `serial_readBytes` function to see how text i
 
   If it has a value greater than 0, it means that it is operational and ready to use.
 
-  > [!INFO]
+  > [!NOTE]
   > For simplicity's sake, you will often find that this check is not performed... but using `serial_available` is a very good error control.
 
   So, we start our loop as follows:
@@ -513,7 +513,7 @@ On the other hand, we will use the `serial_readBytes` function to see how text i
 
   In this case, we use the `serial_parseInt `function to get a number per terminal.
 
-  > [!INFO]
+  > [!NOTE]
   > Why don't we use `serial_read`? Because `serial_read`, although it returns a number, interprets the input in ASCII code. ️
 
   If we enter the number `4` via the terminal, the values change:
