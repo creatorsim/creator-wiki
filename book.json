@@ -5,7 +5,7 @@
   "structure": {
     "readme": "introduction.md"
   },
-  "plugins": ["alerts", "mermaid-md-adoc"],
+  "plugins": ["alerts", "mermaid-md-adoc", "gtag"],
   "pluginsConfig": {
     "alerts": {
       "important": {
@@ -13,6 +13,9 @@
         "icon": "fa fa-exclamation-circle",
         "className": "important"
       }
+    },
+    "gtag": {
+      "token": "G-3RRRR8G333"
     }
   },
   "styles": {

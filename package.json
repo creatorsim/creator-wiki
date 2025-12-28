@@ -9,5 +9,8 @@
     "pdf": "honkit pdf",
     "tex": "python3 scripts/to_latex.py",
     "serve": "honkit serve"
+  },
+  "devDependencies": {
+    "gitbook-plugin-gtag": "^0.0.3"
   }
 }
