@@ -28,7 +28,7 @@ creator-remote-lab/
 On the remote lab container configuration:
 - `results/` must be mounted to `/app/results/` and `config/` to `/app/config/`
 - The server will listen on port `5000`, so we should expose that port
-- In order to send the results via email, you must set your Google Mail address in the `EMAIL` environment variable and your [app pasword](https://support.google.com/mail/answer/185833?hl=en) in the `PASSW` environment variable.
+- In order to send the results via email, you must set your Google Mail address in the `EMAIL` environment variable and your [app password](https://support.google.com/mail/answer/185833?hl=en) in the `PASSW` environment variable.
 
 We should also deploy the gateways. More information on [CREATOR Gateway](../web/gateway.md).
 
