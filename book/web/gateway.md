@@ -142,6 +142,10 @@ The debugger is only available in boards with JTAG, and both USB and SERIAL port
    ```bash
    ./openocd_start.sh esp32c3
    ```
+5. After the Docker terminal confirms that GDBGUI is up and running, access the GDBGUI web interface using your web browser at the following address:
+   ```bash
+   http://localhost:5000
+   ```    
 
 ##### Windows
 1. Install and setup [Zadig](https://zadig.akeo.ie/)
@@ -159,7 +163,10 @@ The debugger is only available in boards with JTAG, and both USB and SERIAL port
    ```powershell
    .\openocd_start.bat esp32c3
    ```
-
+4. After the Docker terminal confirms that GDBGUI is up and running, access the GDBGUI web interface using your web browser at the following address:
+   ```bash
+   http://localhost:5000
+   ```  
 
 ### Native execution (Linux-only)
 You can run the gateway natively on your Linux device.
