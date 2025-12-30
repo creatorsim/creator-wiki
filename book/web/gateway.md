@@ -53,7 +53,12 @@ For more information, see the [IDF documentation](https://docs.espressif.com/pro
     ```
 6. Run the container:
   ```bash
-    docker run --init -it -p 8080:8080 -p 5000:5000 --name creator-gateway-esp32 creatorsim/creator-gateway-esp32
+docker run -it --rm `
+>>   --name creator-gateway-esp32 `
+>>   -p 3333:3333 `
+>>   -p 8080:8080 `
+>>   -p 5000:5000 `
+>>   creatorsim/creator-gateway-esp32:latest
   ```
 
   > [!TIP]
@@ -87,7 +92,7 @@ For more information, see the [IDF documentation](https://docs.espressif.com/pro
 2. Connect your device and check which port it belongs to. It typically resides in `/dev/`, e.g. `/dev/ttyUSB0`. You can quickly check it with `ls /dev/ttyUSB*` (Linux) or `ls /dev/cu.usbserial-*` (macOS).
 3. Run the container:
   ```bash
-    docker run --init -it --device=/dev/ttyUSB0 -p 8080:8080 -p 5000:5000 --name creator-gateway-esp32 creatorsim/creator-gateway-esp32
+    docker run --init -it --device=/dev/ttyUSB0  --add-host=host.docker.internal:host-gateway -p 8080:8080 -p 5000:5000 --name creator-gateway-esp32 creatorsim/creator-gateway-esp32 /bin/bash
   ```
 
   > [!TIP]
