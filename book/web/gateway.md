@@ -142,10 +142,7 @@ The debugger is only available in boards with JTAG, and both USB and SERIAL port
    ```bash
    ./openocd_start.sh esp32c3
    ```
-5. After the Docker terminal confirms that GDBGUI is up and running, access the GDBGUI web interface using your web browser at the following address:
-   ```bash
-   http://localhost:5000
-   ```    
+5. After the container confirms that GDBGUI is up and running, access the web interface at http://localhost:5000
 
 ##### Windows
 1. Install and setup [Zadig](https://zadig.akeo.ie/)
@@ -163,10 +160,7 @@ The debugger is only available in boards with JTAG, and both USB and SERIAL port
    ```powershell
    .\openocd_start.bat esp32c3
    ```
-4. After the Docker terminal confirms that GDBGUI is up and running, access the GDBGUI web interface using your web browser at the following address:
-   ```bash
-   http://localhost:5000
-   ```  
+4. After the container confirms that GDBGUI is up and running, access the web interface at http://localhost:5000
 
 ### Native execution (Linux-only)
 You can run the gateway natively on your Linux device.
@@ -326,24 +320,25 @@ For more information, see the [JTAG documentation](https://docs.espressif.com/pr
 
 9. Download and unzip the [SBC gateway](https://github.com/creatorsim/creator-gateway-sbc/releases/tag/latest) in the SBC
 10. Set up the gateway (inside the gateway folder):
-11. Create a new [Python virtual environment](https://docs.python.org/3/library/venv.html):
-    ```bash
-    python3 -m venv .venv/ source .venv/bin/activate
-    ```
-12. Install the dependencies:
-    ```bash
-    pip3 install -r requirements.txt
-    ```
+  1. Create a new [Python virtual environment](https://docs.python.org/3/library/venv.html):
+      ```bash
+      python3 -m venv .venv
+      source .venv/bin/activate
+      ```
+  2. Install the dependencies:
+      ```bash
+      pip3 install -r requirements.txt
+      ```
 
-    > [!IMPORTANT]
-    > Currently, there is a small issue in GDBGUI that needs to be patched as such:
-    > ```bash
-    > sed -i "/extra_files=get_extra_files()/a\        allow_unsafe_werkzeug=True," .venv/lib/python3.12/site-packages/gdbgui/server/server.py
-    > ```
-    > To validate the changes, run:
-    > ```bash
-    > grep -n "allow_unsafe_werkzeug" .venv/lib/python3.12/site-packages/gdbgui/server/server.py
-    > ```
+      > [!IMPORTANT]
+      > Currently, there is a small issue in GDBGUI that needs to be patched as such:
+      > ```bash
+      > sed -i "/extra_files=get_extra_files()/a\        allow_unsafe_werkzeug=True," .venv/lib/python3.12/site-packages/gdbgui/server/server.py
+      > ```
+      > To validate the changes, run:
+      > ```bash
+      > grep -n "allow_unsafe_werkzeug" .venv/lib/python3.12/site-packages/gdbgui/server/server.py
+      > ```
 
 11. Execute the gateway
   ```
@@ -361,16 +356,16 @@ First, select your **device type** (ESP32 or SBC) and **target board**.
 Then, provide the **target information**:
 
 - ESP32
-  1. **Target port:** Port of the device's UART connection.
+  - **Target port:** Port of the device's UART connection.
      The default values are:
      - **Linux:** `/dev/ttyUSB0`
      - **macOS:** `/dev/cu.usbserial-10`
      - **Windows:** `rfc2217://host.docker.internal:4000?ign_set_control`
 - SBC
-  1. **Target user**: User and IP address of the SBC (`<user>@<ip>`)
-  2. **Target location**: Location of the project folder (e.g. `~/creator`)
+  - **Target user**: User and IP address of the SBC (`<user>@<ip>`)
+  - **Target location**: Location of the project folder (e.g. `~/creator`)
 
-Finally, provide the **flash URL**, the URL address of the gateway. By default, `https:localhost:8080`.
+Finally, provide the **flash URL**, the URL address of the gateway. By default, `https://localhost:8080`.
 
 
 ### Buttons
