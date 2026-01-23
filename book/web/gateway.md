@@ -29,116 +29,115 @@ These use the [creator-gateway-esp32](https://github.com/creatorsim/creator-gate
 RISC-V SBC boards with Linux that can run SSH and [GDBGUI](https://www.gdbgui.com/). At the moment, SBC RISC-V boards with Ubuntu 24.04.3 for RISC-V fulfill these requirements.
 
 - [OrangePi RV2](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html): 8 RISC-V cores, Wi-Fi and Bluetooth conection
-- [Nezha D1-H 64 bit RISC-V](https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/boards/how-to/allwinner-nezha-d1/): Single-core RISC-V64. It does not offer Wi-Fi conection or a GUI
+- [Nezha D1-H 64 bit RISC-V](https://canonical-ubuntu-hardware-support.readthedocs-hosted.com/boards/how-to/allwinner-nezha-d1/): Single-core RISC-V64. It does not offer Wi-Fi connection or a GUI
 
 These use the [creator-gateway-sbc](https://github.com/creatorsim/creator-gateway-sbc).
+
 
 ## Executing the ESP32 gateway
 
 ### Docker execution
-
 This is the recommended way of executing the gateway on Windows, Linux, or macOS.
 
 For more information, see the [IDF documentation](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/tools/idf-docker-image.html).
 
 #### Windows
-
 1. Install [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
 2. Connect your device and check which port it belongs to. You can do this with the `mode` terminal command, or in the Device Manager. The default port is `COM3`.
-3. Setup the [Remote Serial Port](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/tools/idf-docker-image.html#using-remote-serial-port)
-4. Download and unzip [esptool](https://github.com/espressif/esptool/releases)
-5. Run `esp_ffc2217_server` in the device's port (e.g. `COM3`):
-   ``powershell esp_rfc2217_server -v -p 4000 COM3 ``
+3. Set up the [Remote Serial Port](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-guides/tools/idf-docker-image.html#using-remote-serial-port):
+  1. Download and unzip [esptool](https://github.com/espressif/esptool/releases)
+  2. Run `esp_ffc2217_server` in the device's port (e.g. `COM3`):
+    ```powershell
+    esp_rfc2217_server -v -p 4000 COM3
+    ```
 6. Run the container:
-
-```powershell
+  ```powershell
   docker run --rm --name creator-gateway-esp32 -it --init -p 8080:8080 -p 5000:5000 --add-host=host.docker.internal:host-gateway creatorsim/creator-gateway-esp32:latest
-```
+  ```
 
-> [!TIP]
-> You can also use a Docker compose file (`compose.yaml`):
->
-> 1. Create the following `compose.yaml` file:
->    ```yaml
->    services:
->      creator-gateway-esp32:
->        image: creatorsim/creator-gateway-esp32:latest
->        ports:
->          - "8080:8080" # gateway
->          - "5000:5000" # gdbgui
->        stdin_open: true
->        tty: true
->        init: true
->        # for debug
->        network_mode: bridge
->        extra_hosts:
->          - "host.docker.internal:host-gateway"
->    ```
-> 2. Deploy the docker compose in the directory of the YAML file:
->    ```bash
->    docker compose up
->    ```
->
-> Take into account that `docker compose up` is not interactive, therefore the program won't be able to read the inputs. You can run `docker compose up -d` and then attach to the specific container (check its name/id with `docker ps`) with `docker attach <container>`.
+  > [!TIP]
+  > You can also use a Docker compose file (`compose.yaml`):
+  >
+  > 1. Create the following `compose.yaml` file:
+  >    ```yaml
+  >    services:
+  >      creator-gateway-esp32:
+  >        image: creatorsim/creator-gateway-esp32:latest
+  >        ports:
+  >          - "8080:8080" # gateway
+  >          - "5000:5000" # gdbgui
+  >        stdin_open: true
+  >        tty: true
+  >        init: true
+  >        # for debug
+  >        network_mode: bridge
+  >        extra_hosts:
+  >          - "host.docker.internal:host-gateway"
+  >    ```
+  > 2. Deploy the docker compose in the directory of the YAML file:
+  >    ```bash
+  >    docker compose up
+  >    ```
+  >
+  > Take into account that `docker compose up` is not interactive, therefore the program won't be able to read the keyboard inputs. You can run `docker compose up -d` and then attach to the specific container (check its name/id with `docker ps`) with `docker attach <container>`.
 
 #### Linux/macOS
-
 1. Install [Docker engine](https://docs.docker.com/engine/install/) (or [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/))
 2. Connect your device and check which port it belongs to. It typically resides in `/dev/`, e.g. `/dev/ttyUSB0`. You can quickly check it with `ls /dev/ttyUSB*` (Linux) or `ls /dev/cu.usbserial-*` (macOS).
 3. Run the container:
-
-```bash
+  ```bash
   docker run --rm --name creator-gateway-esp32 -it --init --device=/dev/ttyUSB0 --add-host=host.docker.internal:host-gateway -p 8080:8080 -p 5000:5000 creatorsim/creator-gateway-esp32
-```
+  ```
 
-> [!TIP]
-> You can also use a Docker compose file (`compose.yaml`):
->
-> 1. Create the following `compose.yaml` file:
->    ```yaml
->    services:
->      creator-gateway-esp32:
->        image: creatorsim/creator-gateway-esp32:latest
->        ports:
->          - "8080:8080" # gateway
->          - "5000:5000" # gdbgui
->        stdin_open: true
->        tty: true
->        init: true
->        devices:
->          - /dev/ttyUSB0 # device port
->        # for debug
->        network_mode: bridge
->        extra_hosts:
->          - "host.docker.internal:host-gateway"
->    ```
-> 2. Deploy the docker compose in the directory of the YAML file:
->    ```bash
->    docker compose up
->    ```
->
-> Take into account that `docker compose up` is not interactive, therefore the program won't be able to read the inputs. You can run `docker compose up -d` and then attach to the specific container (check its name/id with `docker ps`) with `docker attach <container>`.
+  > [!TIP]
+  > You can also use a Docker compose file (`compose.yaml`):
+  >
+  > 1. Create the following `compose.yaml` file:
+  >    ```yaml
+  >    services:
+  >      creator-gateway-esp32:
+  >        image: creatorsim/creator-gateway-esp32:latest
+  >        ports:
+  >          - "8080:8080" # gateway
+  >          - "5000:5000" # gdbgui
+  >        stdin_open: true
+  >        tty: true
+  >        init: true
+  >        devices:
+  >          - /dev/ttyUSB0 # device port
+  >        # for debug
+  >        network_mode: bridge
+  >        extra_hosts:
+  >          - "host.docker.internal:host-gateway"
+  >    ```
+  > 2. Deploy the docker compose in the directory of the YAML file:
+  >    ```bash
+  >    docker compose up
+  >    ```
+  >
+  > Take into account that `docker compose up` is not interactive, therefore the program won't be able to read the keyboard inputs. You can run `docker compose up -d` and then attach to the specific container (check its name/id with `docker ps`) with `docker attach <container>`.
+
 
 #### Setting up the debugger
-
 The debugger is only available in boards with JTAG, and both USB and SERIAL ports must be connected to the computer.
 
 > [!TIP]
 > For boards without the secondary port on the board, but with JTAG support, you can wire a USB-to_Dip as such:
-> ![img](img/gateway/jtag-connection.png)
+> ![JTAG connection](img/gateway/jtag-connection.png)
 
 ##### Linux/macOS
-
 1. Setup [OpenOCD](https://openocd.org/)
 2. Download [OpenOCD with ESP32 JTAG support v0.12.0-esp32-20241016](https://github.com/espressif/openocd-esp32/releases/tag/v0.12.0-esp32-20241016) (for your OS and architecture) and unzip it
 3. Add the `bin/` folder to your PATH, e.g.:
-   ``bash export PATH="/full/path/to/openocd-esp32/bin:$PATH" ``
+  ```
+  bash export PATH="/full/path/to/openocd-esp32/bin:$PATH"
+  ```
 4. Set the `OPENOCD_SCRIPTS` environment variable:
    ``bash export OPENOCD_SCRIPTS="/full/path/to/openocd-esp32/share/openocd/scripts" ``
 5. Execute the `openocd_start.sh` script (inside the `openocd_scripts` folder in our driver) with the type of device (e.g. `esp32c3`)
-   ```bash
-   ./openocd_start.sh esp32c3
-   ```
+  ```bash
+  ./openocd_start.sh esp32c3
+  ```
 6. After the container confirms that GDBGUI is up and running, access the web interface at http://localhost:5000
 
 ##### Windows
@@ -149,53 +148,52 @@ The debugger is only available in boards with JTAG, and both USB and SERIAL port
 3. Downgrade the driver
    ![Downgrading the driver](img/gateway/zadig_downgrade_driver.png)
 4. Setup [OpenOCD](https://openocd.org/)
-5. Download [OpenOCD with ESP32 JTAG support v0.12.0-esp32-20241016](https://github.com/espressif/openocd-esp32/releases/tag/v0.12.0-esp32-20241016) (for your OS and architecture) and unzip it
-6. Add the `bin\` folder to your PATH, e.g.:
-   ``powershell set PATH=%PATH%;<openocd-esp32 path>\bin\ ``
-7. Execute the `openocd_start.bat` script (inside the `openocd_scripts` folder in our driver) with the type of device (e.g. `esp32c3`)
-   ```powershell
-   .\openocd_start.bat esp32c3
-   ```
-8. After the container confirms that GDBGUI is up and running, access the web interface at http://localhost:5000
+  1. Download [OpenOCD with ESP32 JTAG support v0.12.0-esp32-20241016](https://github.com/espressif/openocd-esp32/releases/tag/v0.12.0-esp32-20241016) (for your OS and architecture) and unzip it
+  2. Add the `bin\` folder to your PATH, e.g.:
+    ```powershell
+    set PATH=%PATH%;<openocd-esp32 path>\bin\
+    ```
+  3. Execute the `openocd_start.bat` script (inside the `openocd_scripts` folder in our driver) with the type of device (e.g. `esp32c3`)
+    ```powershell
+    .\openocd_start.bat esp32c3
+    ```
+5. After the container confirms that GDBGUI is up and running, access the web interface at http://localhost:5000
 
 ### Native execution (Linux-only)
 
 You can run the gateway natively on your Linux device.
 
 1. Install [Python 3.9](https://www.python.org/downloads/release/python-3913/)
-
-- With [uv](https://docs.astral.sh/uv/):
-  ```bash
-  uv python install 3.9
-  ```
-- In [Ubuntu](https://ubuntu.com/):
-  ```bash
-  sudo apt install software-properties-common
-  sudo add-apt-repository ppa:deadsnakes/ppa
-  sudo apt install python3.9
-  ```
+  - With [uv](https://docs.astral.sh/uv/):
+    ```bash
+    uv python install 3.9
+    ```
+  - In [Ubuntu](https://ubuntu.com/):
+    ```bash
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt install python3.9
+    ```
 
 2. Install the [ESP-IDF framework v5.3.2](https://docs.espressif.com/projects/esp-idf/en/v5.3.2/esp32/)
-
-- Follow the instructions from [Espressif&#39;s documentation](https://docs.espressif.com/projects/esp-idf/en/v5.5.1/esp32/get-started/linux-macOS-setup.html).
-- To ensure Python 3.9 is used for the installation, first create a virtual environment in `~/.espressif/python_env/idf5.3_py3.9_en`, and activate it, before executing the `install.sh` script.
-  ```bash
-  python3.9 -m venv ~/.espressif/python_env/idf5.3_py3.9_en
-  source ~/.espressif/python_env/idf5.3_py3.9_env/bin/activate
-  ```
+  - Follow the instructions from [Espressif&#39;s documentation](https://docs.espressif.com/projects/esp-idf/en/v5.5.1/esp32/get-started/linux-macOS-setup.html).
+  - To ensure Python 3.9 is used for the installation, first create a virtual environment in `~/.espressif/python_env/idf5.3_py3.9_en`, and activate it, before executing the `install.sh` script.
+    ```bash
+    python3.9 -m venv ~/.espressif/python_env/idf5.3_py3.9_en
+    source ~/.espressif/python_env/idf5.3_py3.9_env/bin/activate
+    ```
 
 3. Download and unzip the [ESP32 gateway](https://github.com/creatorsim/creator-gateway-esp32/releases/tag/latest)
 4. Install the python dependencies
-   1. Use the `install.sh` script from ESP-IDF
-      ```bash
-      /path/tp/esp-idf-v5.3.2/install.sh
-      ```
-   2. Install the Python dependencies with pip (move to the downloaded folder):
-      ```bash
-      pip3 install -r requirements.txt
-      ```
-
-<!--
+  1. Use the `install.sh` script from ESP-IDF
+    ```bash
+    /path/tp/esp-idf-v5.3.2/install.sh
+    ```
+  2. Install the Python dependencies with pip (move to the downloaded folder):
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+  <!--
   - With [uv](https://docs.astral.sh/uv/):
     ```bash
     uv sync
@@ -204,13 +202,11 @@ You can run the gateway natively on your Linux device.
 
 5. [Load the ESP-IDF environment variables](https://docs.espressif.com/projects/esp-idf/en/v5.5.1/esp32/get-started/linux-macOS-setup.html#step-4-set-up-the-environment-variables) (`export.sh`)
 6. Execute the gateway web service:
-
-```bash
+  ```bash
   python3 gateway.py
-```
+  ```
 
 #### Setting up the debugger
-
 You must set up **ports permissions** for the JTAG. Your user must be in the `plugdev` and `dialout` groups (in Ubuntu/Debian/Fedora), or `uucp` (in Arch Linux).
 
 You can add yourself to the group with `usermod`, e.g.:
@@ -247,7 +243,7 @@ device it gives it the group permissions it typically gives to all other
 devices (`uucp` for Arch, `dialout` for Ubuntu).
 
 > [!TIP]
-> To see the device's id, run `lsusb`:
+> To see the device's ID, run `lsusb`:
 >
 > ```
 > ...
@@ -256,7 +252,7 @@ devices (`uucp` for Arch, `dialout` for Ubuntu).
 > ...
 > ```
 >
-> Therefore, the vendor id for the JTAG is `303a`, and the product id is `1001`, and for the UART `10c4` and `ea60`.
+> Therefore, the vendor ID for the JTAG is `303a`, and the product ID is `1001`, and for the UART `10c4` and `ea60`.
 
 Create a new `/etc/udev/rules.d/99-Espressif.rules` file (with `sudo`!):
 
@@ -267,7 +263,7 @@ Create a new `/etc/udev/rules.d/99-Espressif.rules` file (with `sudo`!):
   SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="1001", GROUP="plugdev"
   SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", GROUP="dialout", MODE="0660"
   ```
-- For Arch:
+- For Arch Linux:
   ```
   # Set default permisions when mounting Espressif USB JTAG/serial debug unit
 
@@ -288,53 +284,47 @@ For more information, see the [JTAG documentation](https://docs.espressif.com/pr
 1. Install the OS following the SBC manufacturer's instructions
 2. Create the **default folder** where your CREATOR projects will be saved, e.g. `~/creator`
 3. Ensure you provide the **correct rights** to the directory
-
-```bash
+  ```bash
   sudo chown $USER:$USER ~/creator
   sudo chmod u+rwx ~/creator
-```
+  ```
 
-4. **Connect the SBC to the Internet** via Ethernet or Wifi if possible.
+4. **Connect the SBC to the Internet** via Ethernet or Wi-Fi if possible.
+  > [!TIP]
+  > Depending on the SBC's configuration, its IP may change from time to time. Check its private IP with `ip a` before each use.
+  > An example IP would be `10.117.129.219`.
 
-> [!TIP]
-> Depending on the SBC's configuration, its IP may change from time to time. Check its private IP with `ip a` before each use.
-> An example IP would be `10.117.129.219`.
-
-6. Check the SSH service status:
-
-```bash
+5. Check the SSH service status:
+  ```bash
   systemctl status ssh
-```
+  ```
 
-7. Check your username with `whoami`. Typically, it's `ubuntu`.
-8. Connect to the SBC from your computer via SSH:
-
-```
+6. Check your username with `whoami`. Typically, it's `ubuntu`.
+7. Connect to the SBC from your computer via SSH:
+  ```
   ssh <user>@<IP>
-```
+  ```
 
-> [!TIP]
-> Every time an SSH connection is made, the system will ask for a password. This can be overridden by copying your computer's SSH keys to the SBC.
->
-> 1. Create a new SSH key in your computer:
->    ```
->    ssh-keygen -t rsa -b 4096
->    ```
-> 2. Copy the key to the SBC
->    ```
->    ssh-copy-id <user>@<IP>
->    ```
+  > [!TIP]
+  > Every time an SSH connection is made, the system will ask for a password. This can be overridden by copying your computer's SSH keys to the SBC.
+  >
+  > 1. Create a new SSH key in your computer:
+  >    ```
+  >    ssh-keygen -t rsa -b 4096
+  >    ```
+  > 2. Copy the key to the SBC
+  >    ```
+  >    ssh-copy-id <user>@<IP>
+  >    ```
 
-9. Download and unzip the [SBC gateway](https://github.com/creatorsim/creator-gateway-sbc/releases/tag/latest) in the SBC
-10. Set up the gateway (inside the gateway folder):
-11. Create a new [Python virtual environment](https://docs.python.org/3/library/venv.html):
-
+8. Download and unzip the [SBC gateway](https://github.com/creatorsim/creator-gateway-sbc/releases/tag/latest) in the SBC
+9. Set up the gateway (inside the gateway folder):
+  1. Create a new [Python virtual environment](https://docs.python.org/3/library/venv.html):
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
-12. Install the dependencies:
-
+  2. Install the dependencies:
     ```bash
     pip3 install -r requirements.txt
     ```
@@ -352,15 +342,15 @@ For more information, see the [JTAG documentation](https://docs.espressif.com/pr
     > grep -n "allow_unsafe_werkzeug" .venv/lib/python3.12/site-packages/gdbgui/server/server.py
     > ```
     >
-13. Install [RISC-V Cross-Compiler](https://github.com/riscv-collab/riscv-gnu-toolchain) on your MacOs, Linux or Windows with WSL device.
-14. Execute the gateway
-
-```
+10. Install the [RISC-V Cross-Compiler](https://github.com/riscv-collab/riscv-gnu-toolchain) on your macOS, Linux or Windows with WSL device
+11. Execute the gateway
+  ```bash
   python3 gateway.py
-```
+  ```
+
+
 
 ## User Interface
-
 The Target Flash menu can be accessed from _Tools_ → _Flash_ in the simulator view.
 ![](img/gateway/ui.png)
 
@@ -380,8 +370,8 @@ Then, provide the **target information**:
 
 Finally, provide the **flash URL**, the URL address of the gateway. By default, `https://localhost:8080`.
 
-### Buttons
 
+### Buttons
 - **Flash:** Builds and flashes CREATOR's program into your development board.
 - **Monitor:** Executes development board's flashed program. It can be stopped by using the "Stop" button or the keyboard shortcuts `Ctrl` + `]` or `Ctrl` + `t` + `x`.
 - **Debug**: If it's setup correctly, it will open another tab with an instance of GDBGUI ready to execute programs step-by-step
