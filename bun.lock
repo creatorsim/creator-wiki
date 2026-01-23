@@ -8,6 +8,9 @@
         "honkit": "^6.1.4",
         "honkit-plugin-mermaid-md-adoc": "^0.0.8",
       },
+      "devDependencies": {
+        "gitbook-plugin-gtag": "^0.0.3",
+      },
     },
   },
   "packages": {
@@ -174,6 +177,8 @@
     "get-proto": ["get-proto@1.0.1", "", { "dependencies": { "dunder-proto": "^1.0.1", "es-object-atoms": "^1.0.0" } }, "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g=="],
 
     "gitbook-plugin-alerts": ["gitbook-plugin-alerts@file:plugins/gitbook-plugin-alerts", {}],
+
+    "gitbook-plugin-gtag": ["gitbook-plugin-gtag@0.0.3", "", {}, "sha512-VPMYRJSy+p1PAxy+0uZcfjFecFsYyWPmExAoXD7UvmflfK5e9Y0I3PR8Y0h5A0XcnOAhvRCB2jFwK/AyUklHNw=="],
 
     "gitbook-plugin-livereload": ["gitbook-plugin-livereload@0.0.1", "", {}, "sha512-+5xinicId2ZcbP6jBTFfQBnjz8nhoBgcOuQfKTEM6Yg9fBsmo2mxY6ubrx1b5ozuIMyfDLkSihx97A7+X+EtQQ=="],
 

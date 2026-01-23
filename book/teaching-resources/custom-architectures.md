@@ -8,7 +8,7 @@ An architecture file is a YAML file that describes the architecture's properties
 > [!NOTE]
 > We provide a [JSON schema](https://json-schema.org/) for the architecure file at https://creatorsim.github.io/creator/schema/architecture.json.
 
-The actual definition for an instruction is simple javascript code to manipulate the simulator state. Within this code, you also have a `registers` local value to access the registers (e.g. `registers.PC`, or `registers[value]`), as well as [`CAPI`](CAPI.md), which allows you to interact with the simulator.
+The actual definition for an instruction is a simple JavaScript code block to manipulate the simulator state. Within this block, you have the `registers` variable to access the registers (e.g. `registers.PC`, or `registers[value]`), as well as [`CAPI`](CAPI.md), an API that allows you to interact with the simulator.
 
 
 > [!IMPORTANT]
@@ -18,15 +18,18 @@ The actual definition for an instruction is simple javascript code to manipulate
 > registers.PC = foo + 1n;   // 421n
 > ```
 
+---
 
-Let's define a simple 8-bit architecture with a few instructions. The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
+Let's define a simple 8-bit architecture with a few instructions.
+
+The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
 
 > [!IMPORTANT]
 > The value of the program counter register (`program_counter`) inside the instruction definitions is affected by the `pc_offset`.
 > 
 > `pc_offset` is the offset that we'll add to the value of program counter the instruction "sees".
 > 
-> E.g. if `pc_offset` is `-4`, while executing an instruction at `0x0`, the "real" PC is `0x4` (because of the fetch performed at the start of the cycle), and `registers.pc` (the "virtual" PC) will be `0x0`.
+> E.g. if `pc_offset` is `-4`, and we're executing an instruction at `0x0`, the "real" PC is `0x4` (because of the fetch performed at the start of the cycle), but the value of `registers.PC` (the "virtual" PC) will be `0x0`.
 
 ```yaml
 version: 2.0.0
@@ -47,7 +50,7 @@ config:
 
 <!-- Registers  -->
 
-For the registers, we'll make an control register bank with a `PC` program counter register (we'll mark that with the `program_counter` property), and another integer register bank with an `A` and `B` register, as well as an `SP` stack pointer register (`stack_pointer` property).
+For the registers, we'll make a control register bank with a `PC` program counter register (we'll mark that with the `program_counter` property), and another integer register bank with a `A` and `B` register, as well as a `SP` stack pointer register (`stack_pointer` property).
 
 > [!NOTE]
 > A floating point bank would be defined as:
@@ -63,8 +66,7 @@ All of these registers will be 8 bits, be initialized (`value`) and have a defau
 > [!NOTE]
 > The `encoding` property will be used when decoding binary instructions, in this case we'll just make it sequential.
 > 
-> `name` is a list because a register can have multiple values, e.g. in RISC-V register `zero` can be also called `x0`, and so on. These names must be all unique.
-
+> `name` is a list because a register can have multiple values, e.g. in RISC-V register `zero` can be also called `x0`, and so on. These names must all be unique.
 
 ```yaml
 components:
@@ -281,7 +283,7 @@ components:
 
 Now we have to define some functions to determine how interrupts work in this architecture.
 
-First, how to determine if an interrupt happened. CREATOR has some predefined types of interrupts that you can use, but here we'll use `InterruptType.Maskable` and `InterruptType.Nonmaskable`. We have to write a function that returns the type of interrupt (`InterruptType`), or `null` if there is no interrupt:
+First, we need to define how to determine if an interrupt happened. CREATOR has some predefined types of interrupts, and here we'll use `InterruptType.Maskable` and `InterruptType.Nonmaskable`. We have to write a function that returns the type of interrupt (`InterruptType`), or `null` if there is no interrupt:
 
 > [!NOTE]
 > You don't have to check if interrupts are enabled here, we'll define that later.
@@ -553,9 +555,9 @@ interrupts:
 
 
 ## Privileged instructions
-CREATOR also supports having privileged instuctions that can only be executed in kernel mode, by adding the `privileged` property. This is the reason for having system calls in the first place, we allow the user to ask doing things that require a higher privilege (e.g. accessing I/O) without giving them that privilege itself.
+CREATOR also supports having privileged instructions that can only be executed in kernel mode, by adding the `privileged` property. This is the reason for having system calls in the first place, we allow the user to ask doing things that require a higher privilege (e.g. accessing I/O) without giving them that privilege itself.
 
-Let's say that in our architecture, an interrupt always triggers an execution mode change, for that we should modify the custom handler to set kernel mode (`CAPI.INTERRUPTS.setKernelMode();`) and the `reti` instruction to go back to user mode (`CAPI.INTERRUPTS.setUserMode();`). As `reti` should only be used while dealing with interrupts, we'll make it a privileged instruction.
+Let's say that in our architecture, an interrupt always triggers an execution mode change. To achieve that, we should modify the custom handler so that it sets kernel mode (`CAPI.INTERRUPTS.setKernelMode();`) and modify the `reti` instruction so that it goes back to user mode (`CAPI.INTERRUPTS.setUserMode();`). As `reti` should only be used while dealing with interrupts, we'll make it a privileged instruction.
 
 ```yaml
 instructions:
