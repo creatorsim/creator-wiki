@@ -39,7 +39,7 @@
   * [Executing the SBC gateway](web/gateway.md#executing-the-sbc-gateway)
   * [User Interface](web/gateway.md#user-interface)
 * [Remote Laboratory](web/remote-lab.md)
-<!-- * [Arduino module (CREATino)](web/arduino.md) -->
+* [Arduino module (CREATino)](web/arduino.md)
 
 ## CLI User Guide
 * [Overview](cli/overview.md)
