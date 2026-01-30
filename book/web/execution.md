@@ -34,4 +34,4 @@ You can modify the currently used handler in the configuration.
 ![Interrupt handler](img/interrupt_handler.png)
 _Figure: Modifying the interrupt handler._
 
-For more information, see [Interrupt Support](teaching-resources/custom-architectures.md#interrupt-support).
+For more information, see [Interrupt Support](../teaching-resources/custom-architectures.md#interrupt-support).
