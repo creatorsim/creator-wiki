@@ -13,19 +13,11 @@ In the Editor view, go to _Library_ → _Load Arduino Library_. The available fu
 <img src="img/arduino/lib.png" width="300">
 
 > [!TIP]
-> Except the `printf` function (which is excusive for Espressif Arduino devices) all the functions displayed can be found in [Arduino's documentation](https://docs.arduino.cc/language-reference/#functions) and in _Help_ → _Creatino Help_.
+> Except the `printf` function (which is excusive for Espressif Arduino devices) and rgbLedWrite(only for BuiltIn internal LEDS in ESP32-C6 and ESP32-H2's devices) all the functions displayed can be found in [Arduino's documentation](https://docs.arduino.cc/language-reference/#functions) and in _Help_ → _Creatino Help_.
 
 
 ### Creating your first program
 As in the original Arduino sketches, CREATino programs must have a structure composed by a "setup" and a "loop" function. CREATOR provides an example template in _Help_ → _Examples_ → _Example 1: Template for new examples_.
-
-<img src="img/arduino/template.png" width="300">
-
-> [!IMPORTANT]
-> Before executing your program in the device, make sure to select the _Arduino Support_ checkbox to enable CREATino.
->
-> <img src="img/arduino/sup.png" width="500">
-
 
 ### Aspects to consider when using this library
 1. The supported ESP32 boards do not support have floating point operations. Arduino functions with `float` or `double` outputs will fail.
@@ -40,9 +32,82 @@ As in the original Arduino sketches, CREATino programs must have a structure com
     ```
   2. **GPIO 18 and 19:** Debug pins
 
+## CREATino Maker: Graphic simulation enviroment
+
+CREATOR now supports a graphic simulator using CREATOR executor. It can be accesed next to the Statics Menu
+
+<img src="img/arduino/maker_setup.png" width="700">
+
+### Components menu
+
+Placed on the bottom-left part of the workspace, here it can be selected the components needed for our proyect.
+
+Components available:
+* **LED**: Output component. Turns the light up and down. It can be changed its color.
+* **Button**: Input component. Interactable by the user. Can change color
+* **Buzzer**: Output component. Simulates music notes when turned on and can play sound.
+
+<img src="img/arduino/ComponentMenu.png" width="300">
 
 
-## Examples
+### Workspace menu
+
+Placed on the top-left corner, this menu interacts with the workspace.
+
+* **File Settings**: This options lets the user undo and redo their actions inside the workspace.
+<img src="img/arduino/FileSettings.png" width="900">
+
+* **View Settings**: This options lets the user Zoom In and out the workspace
+<img src="img/arduino/ZoomSettings.png" width="900"> 
+
+* **Clean All**: This options lets the user erase every component and connection inside the workspace.
+<img src="img/arduino/borrar_todo.png" width="800"> 
+
+## File Menu
+
+Placed on the top-right corner, this menu lets the user upload and save their proyects. Only works with .json format created previously inside the simulator.
+
+* **Upload project**: Lets users load their proyects to CREATino environment, including its code.
+
+
+* **Save Project**: Lets users save their progress in a .json file. Saves the environment and the code used.
+<img src="img/arduino/download_state.png" width="800"> 
+
+* **Examples**: Offers users some functional examples that work the same in real-hardware.
+Examples available are:
+* **Semmaphore**: Sequence or 3 leds turning up and down.
+<img src="img/arduino/Semmaphore_example.png" width="500"> 
+* **Blink**: Simple dev board with blink program.
+* **Buzzer**: Board connected to a buzzer that turns up and down the music.
+<img src="img/arduino/buzzer.png" width="500"> 
+* **Button + LED**: Program that light up a LED whenever the button is pressed.
+<img src="img/arduino/boton_pulsado.png" width="500"> 
+
+## Interact with the workspace
+
+The user can do the following actions inside the Maker Scene:
+
+1. **Move freely inside the infinite canvas**: Suitable for times where the setup gets messy.
+<img src="img/arduino/movement.gif" width="500">
+
+2. **Interact with the components inside the canvas**: The user can change features of the component added.
+
+| Change Color | Flip Component | Rotate Component | Delete Component |
+| :--- | :--- | :--- | :--- |
+| <img src="img/arduino/ChangeColor.gif" width="350"> | <img src="img/arduino/Flip.gif" width="300"> | <img src="img/arduino/Rotate.gif" width="300"> | <img src="img/arduino/Delete.gif" width="300"> |
+| The user can change component's color. | Invert component's position. | Turn over 90 degrees. | Erase from the canvas. |
+
+3. **Create connections between the component and the dev board**: Create connections in order to make components work.
+
+
+
+
+
+
+
+
+
+## Use Cases
 
 ### Example 1: Internal LED Blink
 This example is used to check if GPIO functions work correctly inside a ESP32-C3 board.
@@ -938,3 +1003,4 @@ startTune:
 And there we have our piano:
 
 <img src="img/arduino/example5.png" width="500">
+
