@@ -39,6 +39,7 @@ function isUserMode(): boolean {
 }
 ```
 
+
 ## Privileged Instructions
 
 ### Definition
@@ -81,6 +82,7 @@ function execute_one_instruction() {
   instruction.handler(state, instruction.operands);
 }
 ```
+
 
 ## Mode Transitions
 
@@ -144,6 +146,7 @@ function execute_eret() {
   set_status(status & ~0x2);  // Clear EXL bit
 }
 ```
+
 
 ## Common Privileged Instructions
 
@@ -244,6 +247,7 @@ Control and Status Register (CSR) access is often privileged:
     rs1 = value;
 ```
 
+
 ## Control and Status Registers (CSRs)
 
 ### CSR Categories
@@ -315,6 +319,7 @@ function checkCSRAccess(csr_addr: number): void {
 0xC02  instret   - Instructions retired (read-only)
 ```
 
+
 ## Implementing Privilege Checks
 
 ### Architecture Definition
@@ -366,6 +371,7 @@ function validatePrivilege(instruction) {
 }
 ```
 
+
 ## Exception Handling
 
 ### Privilege Violations
@@ -387,6 +393,7 @@ function handlePrivilegeViolation(error: PrivilegeViolationError): void {
   makeInterrupt(InterruptType.IllegalInstruction);
 }
 ```
+
 
 ## System Call Mechanism
 
@@ -428,6 +435,7 @@ function trapHandler() {
 }
 ```
 
+
 ## Debugging Privileged Code
 
 ### Mode Tracking
@@ -451,6 +459,7 @@ Current mode: User
 PC: 0x00400010
 ```
 
+
 ## Best Practices
 
 1. **Minimal Privileged Instructions**: Only mark truly privileged operations
@@ -459,6 +468,7 @@ PC: 0x00400010
 4. **Proper Context Saving**: Always save PC and status before mode switch
 5. **Interrupt Handling**: Disable interrupts during mode transitions
 6. **Testing**: Test both user and kernel mode paths
+
 
 ## Example: Complete Privilege System
 
@@ -497,9 +507,11 @@ instructions:
       currentExecutionMode = ExecutionMode.User;
 ```
 
+
 ## Next Steps
 
 - Review [Interrupts](interrupts.md) for trap handling details
 - See [Devices](devices.md) for system call implementation
 - Read [Core Architecture](core-architecture.md) for system integration
 - Check [Custom Architectures](custom-architectures.md) for privilege configuration
+

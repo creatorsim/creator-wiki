@@ -423,7 +423,7 @@ devices.set("timer", new TimerDevice({
 ```
 
 **Usage in Assembly**:
-```assembly
+```
 # Start 1000ms timer
 li a0, 1000
 li a7, 101    # Start timer syscall

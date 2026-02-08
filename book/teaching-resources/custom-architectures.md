@@ -601,8 +601,10 @@ interrupts:
 ```
 
 
+<!--
 ## Timers
 
 
-
 ## Devices
+-->
+

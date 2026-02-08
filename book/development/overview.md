@@ -1,7 +1,7 @@
 # Architecture Overview
 
-<!--
 This guide covers extending and developing CREATOR, including architecture, core internals, and customization.
+
 
 ## Target Audience
 
@@ -10,6 +10,7 @@ This guide covers extending and developing CREATOR, including architecture, core
 - Contributors to the CREATOR project
 - Advanced users customizing behavior
 
+<!--
 ## What You'll Learn
 
 ### Core Architecture
@@ -47,6 +48,8 @@ This guide covers extending and developing CREATOR, including architecture, core
 - Instruction set specification
 - Register bank configuration
 - Memory layout design
+-->
+
 
 ## Source Code Structure
 
@@ -116,6 +119,7 @@ src/
     └── server.mts         # RPC server implementation
 ```
 
+
 ## Development Workflow
 
 ### Setting Up Development Environment
@@ -150,6 +154,7 @@ npm test
 5. **Commit**: Descriptive commit message
 6. **PR**: Submit pull request
 
+
 ## Key Concepts
 
 ### Architecture Definition
@@ -161,7 +166,7 @@ Architectures are defined in YAML files specifying:
 - System calls
 - Interrupts
 
-See [Creating Custom Architectures](custom-architectures.md).
+<!-- See [Creating Custom Architectures](custom-architectures.md). -->
 
 ### Instruction Execution
 
@@ -192,6 +197,7 @@ Devices provide I/O and OS services:
 - Callback handlers
 
 See [Devices](devices.md) for details.
+
 
 ## API Overview
 
@@ -244,6 +250,7 @@ memory.setHint(address, {tag, type, sizeInBits})
 memory.getHint(address)
 ```
 
+
 ## Design Principles
 
 ### Modularity
@@ -266,6 +273,7 @@ memory.getHint(address)
 - Caching where appropriate
 - Lazy evaluation
 
+
 ## Contributing
 
 ### Code Style
@@ -284,6 +292,7 @@ memory.getHint(address)
 - Add examples
 - Explain design decisions
 
+
 ## Resources
 
 - **GitHub**: Source code and issues
@@ -291,6 +300,7 @@ memory.getHint(address)
 - **Examples**: `examples/` directory
 - **Tests**: `tests/` directory
 
+<!--
 ## Guide Structure
 
 1. **[Core Architecture](core-architecture.md)**: Overall system design
@@ -302,6 +312,7 @@ memory.getHint(address)
 7. **[Creating Custom Architectures](custom-architectures.md)**: Architecture design
 8. **[Privileged Instructions](privileged.md)**: Privilege levels
 
+
 ## Next Steps
 
 - Read [Core Architecture](core-architecture.md) for system overview
@@ -310,3 +321,4 @@ memory.getHint(address)
 - Explore [Assembler Integration](assemblers.md) for compilation
 - Design [Custom Architectures](custom-architectures.md)
 -->
+

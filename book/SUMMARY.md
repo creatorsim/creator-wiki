@@ -67,14 +67,14 @@
 
 ## Teaching Resources
 * [Overview](teaching-resources/overview.md)
-* [Snapshots](teaching-resources/snapshots.md)
+<!-- * [Snapshots](teaching-resources/snapshots.md) -->
 * [Validating program execution](teaching-resources/validator.md)
 * [Creating Custom Architectures](teaching-resources/custom-architectures.md)
     * [Plugins](teaching-resources/custom-architectures.md#plugins)
     * [Interrupt Support](teaching-resources/custom-architectures.md#interrupt-support)
     * [Privileged Instructions](teaching-resources/custom-architectures.md#privileged-instructions)
-    * [Timers](teaching-resources/custom-architectures.md#timers)
-    * [Devices](teaching-resources/custom-architectures.md#devices)
+<!-- * [Timers](teaching-resources/custom-architectures.md#timers) -->
+<!-- * [Devices](teaching-resources/custom-architectures.md#devices) -->
 * [Setting up the Remote Laboratory](teaching-resources/remote-lab.md)
 * [CREATOR API (CAPI)](teaching-resources/capi.md)
     * [Memory](teaching-resources/capi.md#memory)
@@ -93,6 +93,9 @@
 ## Development Guide
 * [Project setup](development/setup.md)
 * [Architecture overview](development/overview.md)
+    * [Devices](development/devices.md)
+    * [Interrupts](development/interrupts.md)
+    * [Privileged](development/privileged.md)
 * [Web Application](development/web.md)
     * [Vue 3 tricks](development/vue-tricks.md)
 

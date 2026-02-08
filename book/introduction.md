@@ -19,7 +19,7 @@ Welcome to the CREATOR documentation!
 New to CREATOR? Get up and running quickly:
 1. **[Try it now in your browser](https://creatorsim.github.io/creator)** - No installation needed!
 2. Learn about the **[Web Interface](web/overview.md)** or **[CLI Interface](cli/overview.md)** to navigate the simulator
-3. Check our **[Architecture Guides](architecture/overview.md)**
+<!-- 3. Check our **[Architecture Guides](architecture/overview.md)** -->
 
 ## 👨‍🏫 Teachers, start here!
 Setting up CREATOR for your course:
