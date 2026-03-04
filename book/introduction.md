@@ -1,4 +1,4 @@
-# CREATOR — didaCtic and geneRic assEmbly progrAmming simulaTOR
+# CREATOR
 
 Welcome to the CREATOR documentation!
 
