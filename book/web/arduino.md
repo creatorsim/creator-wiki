@@ -13,19 +13,13 @@ In the Editor view, go to _Library_ → _Load Arduino Library_. The available fu
 <img src="img/arduino/lib.png" width="300">
 
 > [!TIP]
-> Except the `printf` function (which is excusive for Espressif Arduino devices) all the functions displayed can be found in [Arduino's documentation](https://docs.arduino.cc/language-reference/#functions) and in _Help_ → _Creatino Help_.
+> Except the `printf` function (which is excusive for Espressif Arduino devices) and rgbLedWrite(only for BuiltIn internal LEDS in ESP32-C6 and ESP32-H2's devices) all the functions displayed can be found in [Arduino's documentation](https://docs.arduino.cc/language-reference/#functions) and in _Help_ → _Creatino Help_.
 
 
 ### Creating your first program
 As in the original Arduino sketches, CREATino programs must have a structure composed by a "setup" and a "loop" function. CREATOR provides an example template in _Help_ → _Examples_ → _Example 1: Template for new examples_.
 
 <img src="img/arduino/template.png" width="300">
-
-> [!IMPORTANT]
-> Before executing your program in the device, make sure to select the _Arduino Support_ checkbox to enable CREATino.
->
-> <img src="img/arduino/sup.png" width="500">
-
 
 ### Aspects to consider when using this library
 1. The supported ESP32 boards do not support have floating point operations. Arduino functions with `float` or `double` outputs will fail.
@@ -40,7 +34,46 @@ As in the original Arduino sketches, CREATino programs must have a structure com
     ```
   2. **GPIO 18 and 19:** Debug pins
 
+  ## CREATOR Arduino Debug page: 
 
+  CREATOR now supports a graphic simulator using CREATOR executor. It can be accesed next to the Statics Menu when loaded Arduino Library
+
+  <img src="img/arduino/debugger/debugger.png" width="800">
+
+  ### Boards Available
+  At he moment, the user can access tu ESP32C3-DevkitC-02 and ESP32-C6-DevKitC-1 graphic models inside the simulator.
+  > [!TIP]
+  >  GPIO30 inside the ESP32C3 board refers to RGB-Inside Led.
+
+| ESP32C3-DevKitC-02 | ESP32C6-DevKitC-1 |
+| :---: | :---: |
+| <img src="img/arduino/debugger/esp32c3.png" width="350"> | <img src="img/arduino/debugger/esp32c6.png" width="350"> |
+| 15 general-purpose pins. | 22 general-purpose pins. |
+
+### Pin Modes
+Inside the pin modes that can be assigned with the `pinMode` arduino command, the pins can have different colors
+
+| Input | Output | Input_Pullup | Input_Pulldown | Analog |
+| :---: | :---: | :---: | :---: | :---: |
+| <img src="img/arduino/debugger/input.png" width="200"> | <img src="img/arduino/debugger/output.png" width="200"> | <img src="img/arduino/debugger/input_pullup.png" width="90"> | <img src="img/arduino/debugger/input_pulldown.png" width="90"> | <img src="img/arduino/debugger/analog.png" width="100"> |
+| Digital input mode. | Digital output mode. | Combines input configuration (`0x01`) with pull-up (`0x04`). | Ensures the pin reads LOW when disconnected. | Configures the pin for analog input (`ADC`) |
+
+### Change values inside the pin
+
+During the execution and debug of Arduino programs, the user can change manually the GPIO values to simulate peripherial interaction (a button presses, a ultrasound sensor value...).
+As all GPIO ESP32 pins are general-purpose, they can have whole numbers detected.
+
+During the execution of a program, the user can see also how its value changes (e.g. lighting up a LED).
+
+| Automatic Change | Manual Change |
+| :---: | :---: |
+| <img src="img/arduino/debugger/changepin.gif" width="100"> | <img src="img/arduino/debugger/change_manual.gif" width="100"> |
+| Changed value when used `digitalWrite`. | Changed value manually. |
+
+### Interruptions
+Arduino Module includes functions related to high-level interrupts attachment (see Example 2 bellow) that can be reproduced graphically inside the simulator.
+
+  <img src="img/arduino/debugger/interrupt_button.gif" width="500">
 
 ## Examples
 
@@ -59,12 +92,8 @@ The possible values for the mode are:
 | --------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `INPUT`                     | `0x01`  | Digital input mode                                                                                                                 |
 | `OUTPUT`                    | `0x03`  | Digital output mode                                                                                                                |
-| `PULLUP`                    | `0x04`  | Enables the internal pull-up resistor on an input pin (if the pin is disconnected, it will read HIGH). Buttons connected to ground |
 | `INPUT_PULLUP`              | `0x05`  | Combines input configuration (`0x01`) with pull-up (`0x04`)                                                                        |
-| `PULLDOWN`                  | `0x08`  | Ensures the pin reads LOW when disconnected                                                                                        |
 | `INPUT_PULLDOWN`            | `0x09`  | Ensures the pin reads LOW when disconnected                                                                                        |
-| `OPEN_DRAIN` (Data buses)   | `0x10`  | Output can only pull to ground; reading HIGH requires an external resistor or pull-up                                              |
-| `OUTPUT_OPEN_DRAIN` (Buses) | `0x13`  | Combines digital output with open-drain mode                                                                                       |
 | `ANALOG`                    | `0xC0`  | Configures the pin for analog input (`ADC`)                                                                                        |
 
 In this case, our setup function will look like this:
