@@ -50,6 +50,13 @@ As in the original Arduino sketches, CREATino programs must have a structure com
 | <img src="img/arduino/debugger/esp32c3.png" width="350"> | <img src="img/arduino/debugger/esp32c6.png" width="350"> |
 | 15 general-purpose pins. | 22 general-purpose pins. |
 
+### Debug panel
+To help debugging and following the exacution of Arduino functions, there is _Arduino Function Tracer_ Terminal ,which shows the user what action has been done (function execution, text, interrupts warning...)
+
+<p align="center">
+<img src="img/arduino/debugger/arduino_debug.gif" width="500">
+</p>
+
 ### Pin Modes
 Inside the pin modes that can be assigned with the `pinMode` arduino command, the pins can have different colors
 
@@ -71,9 +78,19 @@ During the execution of a program, the user can see also how its value changes (
 | Changed value when used `digitalWrite`. | Changed value manually. |
 
 ### Interruptions
-Arduino Module includes functions related to high-level interrupts attachment (see Example 2 bellow) that can be reproduced graphically inside the simulator.
+Arduino Module includes functions related to high-level interrupts attachment that can be reproduced graphically inside the simulator.
 
+  > [!TIP]
+  >  By default, interrupts are enabled. To disable them, use the Arduino function `nointerrupts()`.
+  
+  <p align="center">
   <img src="img/arduino/debugger/interrupt_button.gif" width="500">
+  </p>
+
+  > [!TIP]
+  >  See _Example 14:High level interrupts example_ to try this feature
+  
+
 
 ## Examples
 
