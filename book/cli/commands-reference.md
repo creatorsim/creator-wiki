@@ -347,17 +347,17 @@ Display register values.
 ```
 CREATOR> reg list
 Register types:
-  int_registers
-  fp_registers
+  int
+  float
 
-CREATOR> reg int_registers
-int_registers:
+CREATOR> reg int
+int:
 zero(x0): 0x00000000  ra(x1): 0x00000000  sp(x2): 0x7FFFFFFC  gp(x3): 0x10008000
 t0(x5):   0x00000123  t1(x6): 0x00000000  t2(x7): 0x00000000  fp(x8): 0x00000000
 ...
 
-CREATOR> reg int_registers dec
-int_registers:
+CREATOR> reg int dec
+int:
 zero(x0): 0           ra(x1): 0           sp(x2): 2147483644  gp(x3): 268468224
 t0(x5):   291         t1(x6): 0           t2(x7): 0           fp(x8): 0
 ...
@@ -640,7 +640,7 @@ Current command aliases:
   b   → break
   r   → run
   c   → continue
-  reg → reg int_registers
+  reg → reg int
 
 Aliases can be defined in your config file at:
 ~/.config/creator/config.yml

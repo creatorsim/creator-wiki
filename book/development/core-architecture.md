@@ -83,8 +83,8 @@ set_register(name, value)
   name: "RISC-V RV32I",
   bits: 32,
   registers: {
-    int_registers: [...],
-    fp_registers: [...],
+    int: [...],
+    float: [...],
     special_registers: [...]
   },
   memory: {

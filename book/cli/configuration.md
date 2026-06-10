@@ -84,8 +84,8 @@ aliases:
   b: break
   
   # Register groups
-  regs: reg int_registers
-  fregs: reg fp_registers
+  regs: reg int
+  fregs: reg fp
   
   # Common inspections
   pc: reg pc

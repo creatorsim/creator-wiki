@@ -57,8 +57,8 @@ For the registers, we'll make a control register bank with a `PC` program counte
 > ```yaml
 >  # ...
 >  - name: Floating point registers
->    type: fp_registers
->    double_precision: true  # or `false`, if sinlge-precision
+>    type: float
+>    double_precision: true  # or `false`, if single-precision
 > ```
 
 All of these registers will be 8 bits, be initialized (`value`) and have a default value (`default_value`) of `0`, and will be both readable (`read` property) and writable (`write` property).
@@ -69,11 +69,11 @@ All of these registers will be 8 bits, be initialized (`value`) and have a defau
 > `name` is a list because a register can have multiple values, e.g. in RISC-V register `zero` can be also called `x0`, and so on. These names must all be unique.
 
 ```yaml
-components:
+register_files:
   - name: Control registers
-    type: ctrl_registers
+    type: ctrl
     double_precision: false
-    elements:
+    registers:
       - name:
           - PC
         nbits: 8
@@ -85,9 +85,9 @@ components:
           - write
           - program_counter
   - name: Integer registers
-    type: int_registers
+    type: int
     double_precision: false
-    elements:
+    registers:
       - name:
           - A
         encoding: 0
@@ -246,11 +246,11 @@ We'll define two new 1-bit integer registers `MIP` (_Maskable Interrupt Pending_
 
 We just need to add them to `simplearch.yml`:
 ```yml
-components:
+register_files:
   # ...
   - name: Integer registers
     # ...
-    elements:
+    registers:
       # ...
       - name:
           - MIP
@@ -433,11 +433,11 @@ As we mentioned in [Interrupt Handling](../web/execution.md#interrupt-handling),
 
 These system calls will generate a new type of interrupt (`InterruptType.EnvironmentCall`), so let's quickly modify the architecture to take them into account. We'll also add a new `EIP` register to signal that that type of interrupt is pending.
 ```yaml
-components:
+register_files:
   # ...
   - name: Integer registers
     # ...
-    elements:
+    registers:
       # ...
       - name:
           - EIP
