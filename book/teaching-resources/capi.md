@@ -8,6 +8,7 @@ CAPI allows instruction definitions to interact with custom CREATOR functions.
 
 ## Memory
 Interaction with CREATOR's memory.
+At [src/core/capi/memory.mts](https://github.com/creatorsim/creator/blob/master/src/core/capi/memory.mts)
 
 
 ### `CAPI.MEM.write`
@@ -76,6 +77,48 @@ CAPI.MEM.addHint(registers.f0, "float64", 64);
 ```
 
 
+### `CAPI.MEM.alloc`
+
+```ts
+CAPI.MEM.alloc(bytes: number): bigint { }
+```
+
+Allocates `bytes` bytes of memory and return the starting address.
+
+E.g.:
+```js
+var memory_block = CAPI.MEM.alloc(64);
+```
+
+
+### `CAPI.MEM.writeValueToMemory`
+
+```ts
+CAPI.MEM.writeValueToMemory(address: bigint, value: bigint, bytes: number): number[] { }
+```
+
+Writes a value to memory respecting endianness configuration.
+
+E.g.:
+```js
+var memory_block = CAPI.MEM.writeValueToMemory(0x1000, 0x1234, 4);
+```
+
+
+### `CAPI.MEM.readValueToMemory`
+
+```ts
+CAPI.MEM.readValueToMemory(address: bigint, bytes: number): bigint { }
+```
+
+Reads a value to memory respecting endianness configuration.
+
+E.g.:
+```js
+var memory_block = CAPI.MEM.readValueToMemory(0x1000, 0x1234, 4);
+```
+
+
 ## System calls
 CREATOR's system calls.
 
@@ -92,7 +135,6 @@ E.g.:
 ```js
 CAPI.SYSCALL.exit();
 ```
-
 
 
 ### `CAPI.SYSCALL.print`
@@ -143,7 +185,6 @@ CAPI.SYSCALL.read("a0", "string", "a1");
 ```
 
 
-
 ### `CAPI.SYSCALL.get_clk_cycles`
 
 ```ts
@@ -175,25 +216,28 @@ CAPI.SYSCALL.sbrk("a0", "v0");
 
 
 ## Validation
+Checks and validations support.
+At [src/core/capi/validation.mts](https://github.com/creatorsim/creator/blob/master/src/core/capi/validation.mts)
+
 
 ### `CAPI.SYSCALL.raise`
 
 ```ts
-CAPI.SYSCALL.raise(msg: string): never { }
+CAPI.VALIDATION.raise(msg: string): never { }
 ```
 
 Raises an error with a specific `msg`.
 
 E.g.:
 ```js
-CAPI.SYSCALL.raise("Help!");
+CAPI.VALIDATION.raise("Help!");
 ```
 
 
-### `CAPI.SYSCALL.isOverflow`
+### `CAPI.VALIDATION.isOverflow`
 
 ```ts
-CAPI.SYSCALL.isOverflow(op1: bigint, op2: bigint, res_u: bigint): boolean { }
+CAPI.VALIDATION.isOverflow(op1: bigint, op2: bigint, res_u: bigint): boolean { }
 ```
 
 Checks if the result `res_u` of operating two operands `op1` and `op2` caused an overflow.
@@ -204,8 +248,23 @@ CAPI.SYSCALL.isOverflow(registers.t0, registers.t1, registers.t0 + registers.t1)
 ```
 
 
+### `CAPI.VALIDATION.isMisaligned`
+
+```ts
+CAPI.VALIDATION.isMisaligned(addr: bigint, size: bigint|number): boolean { }
+```
+
+Checks if the address `addr` is misaligned (it is not a multiple of word-size bytes or `size` bytes).
+
+E.g.:
+```js
+if (CAPI.VALIDATION.isMisaligned(addr, 4))
+```
+
+
 ## Stack
 These functions are used for the stack tracker and sentinel modules, and are a way to tell CREATOR when a new function frame begins and ends. They should be included in the instructions that jump to, o return from, a routine, as is the case of RISC-V's `jal` and `jr` instructions.
+At [src/core/capi/stack.mts](https://github.com/creatorsim/creator/blob/master/src/core/capi/stack.mts)
 
 
 ### `CAPI.STACK.beginFrame`
@@ -240,6 +299,7 @@ CAPI.SYSCALL.endFrame();
 
 
 ## Floating point
+At [src/core/capi/fp.mts](https://github.com/creatorsim/creator/blob/master/src/core/capi/fp.mts)
 
 
 ### `CAPI.FP.split_double`
@@ -385,6 +445,7 @@ CAPI.FP.float2bin(5.0);
 
 
 ## Registers
+At [src/core/capi/registers.mts](https://github.com/creatorsim/creator/blob/master/src/core/capi/registers.mts)
 
 
 ### `CAPI.REG.read`
