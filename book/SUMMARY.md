@@ -70,9 +70,10 @@
 <!-- * [Snapshots](teaching-resources/snapshots.md) -->
 * [Validating program execution](teaching-resources/validator.md)
 * [Creating Custom Architectures](teaching-resources/custom-architectures.md)
-    * [Plugins](teaching-resources/custom-architectures.md#plugins)
     * [Interrupt Support](teaching-resources/custom-architectures.md#interrupt-support)
     * [Privileged Instructions](teaching-resources/custom-architectures.md#privileged-instructions)
+    * [Timers](teaching-resources/custom-architectures.md#timers)
+    * [Devices](teaching-resources/custom-architectures.md#devices)
 <!-- * [Timers](teaching-resources/custom-architectures.md#timers) -->
 <!-- * [Devices](teaching-resources/custom-architectures.md#devices) -->
 * [Setting up the Remote Laboratory](teaching-resources/remote-lab.md)
@@ -98,6 +99,7 @@
     * [Privileged](development/privileged.md)
 * [Web Application](development/web.md)
     * [Vue 3 tricks](development/vue-tricks.md)
+* [Version Management](development/version-management.md)
 
 
 

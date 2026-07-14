@@ -173,7 +173,8 @@ instructions:
         registers.F = CAPI.ARCH.calculateFlags_ADD(oldValueA, registers.B);
 ```
 
-<!-- TODO: Directives  -->
+<!-- Directives  -->
+You'll also need to add some _directives_ in order to mark things like the data and text segments, or defining data types on the data segment. Here you have a complete example:
 
 ```yaml
 directives:
@@ -231,10 +232,22 @@ directives:
 ```
 
 
+<!-- ## TODO: Extensions -->
+<!-- Extensions are supposed to be enabled/disabled, but that's currently not wired up -->
+
 
 ## Plugins
+Plugins are extra architecture-specific CAPI modules that are loaded with the architecture (`CAPI.ARCH`). These add extra custom functionalities that can be more easily achieved by being inside the engine.
 
-<!-- TODO -->
+```yaml
+config:
+  # ...
+  plugin: riscv
+```
+
+> [!NOTE]
+> For more information about the API and available functionalities, see [CAPI Reference](../teaching-resources/capi.md#architecture).
+
 
 
 ## Interrupt Support
@@ -435,13 +448,13 @@ These system calls will generate a new type of interrupt (`InterruptType.Environ
 ```yaml
 register_files:
   # ...
-  - name: Integer registers
+  - name: Control registers
     # ...
     registers:
       # ...
       - name:
           - EIP
-        encoding: 2
+        encoding: 1
         nbits: 1
         value: 0
         default_value: 0
@@ -601,10 +614,104 @@ interrupts:
 ```
 
 
-<!--
 ## Timers
+Another way of generating interrupts is through the use of a timer. CREATOR, nevertheless, allows a custom timer handler, which gives many more possibilities.
+
+The functioning of timers in CREATOR if that, each _tick_ (a _tick_ is defined as a number of clock cycles in `tick_cycles`), if the timer is enabled (`is_enabled`), it calls the handler (`handler`) and advances the timer value (`advance`). The handler is supposed to compare the timer value and perform whatever action.
+
+As an example, we'll create a new `TIME` control register to keep time, and a user-configurable `TIMECMP` register to compare that timer to, allowing the user to create their own timers. We'll also add a register to enable timers:
+```yaml
+register_files:
+  - name: Control registers
+    # ...
+    registers:
+      # ...
+      - name:
+          - TIME
+        nbits: 8
+        encoding: 2
+        value: 0
+        default_value: 0
+        properties:
+          - read
+
+  # ...
+
+  - name: Integer registers
+    # ...
+    registers:
+      # ...
+      - name:
+          - TIMECMP
+        encoding: 5
+        nbits: 8
+        value: 0
+        default_value: 0
+        properties:
+          - read
+          - write
+
+      - name:
+          - TE
+        encoding: 6
+        nbits: 1
+        value: 1
+        default_value: 1
+        properties:
+          - read
+          - write
+```
+
+Our timer will advance once per cycle, compare both `TIME` and `TIMECMP` and fire up a `Timer` interrupt. It will advance continuously, and overflow going back to 0. For the enabling/disabling we use the new `TE` register.
+
+```yaml
+timer:
+  tick_cycles: 1  # one tick per cycle
+  advance: |
+    registers.TIME = (registers.TIME + 1n) % (2n**8n - 1n);  // to prevent overflow
+  handler: |
+    if (registers.TIME === registers.TIMECMP) {
+      CAPI.INTERRUPTS.create(InterruptType.Timer);
+      registers.TIME = 0;  // you might want to reset here
+    }
+  is_enabled: |
+    return !!registers.TE;  // has to return bool
+  enable: |
+    registers.TE = 1;
+  disable: |
+    registers.TE = 0;
+```
+
+> [!NOTE]
+> We're generating a new type of interrupt (`InterruptType.Timer`), but we're not handling it in the interrupt handler.
+> 
+> This is left as an exercise for the reader.
+
+
 
 
 ## Devices
--->
+Devices are memory-mapped I/O that the user can interact with (through memory). CREATOR exposes a set of devices with their own functionalities, and they are configurable in the architecture.
 
+Each device has a string ID (`id`), a class - or type of device (`cls`), and the addresses of their control (`ctrl_addr`) and status registers (`status_addr`) and data segment (`data`). You can also enable or disable them (`enable` - by default, they are enabled)
+
+Let's set up a console device at the end of the `data` segment. It will overlap, but the device has priority:
+```yaml
+devices:
+  - id: console
+    cls: ConsoleDevice
+    ctrl_addr: 0x7FF0
+    status_addr: 0x7FF4
+    data:
+      start: 0x7FF8
+      end: 0x7FFF
+    # enabled: true
+```
+
+> [!NOTE]
+> Now the user can talk to the device by reading and writing to the end of the `data` segment. But the current architecture does not expose any instructions to do that.
+> 
+> This is left as an exercise for the reader.
+
+
+You can find more information about the implemented devices in [Devices](../development/devices.md#implemented-devices).

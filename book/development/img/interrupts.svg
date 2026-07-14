@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="784"
+   height="1325"
+   viewBox="0 0 784 1325"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3">
+      <path
+         d="M -7.7617847e-7,6.8694624e-7 189.99997,2.708521e-5 190.00001,240.00001 -2.4812889e-5,240.00003 Z"
+         id="path3" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <path
+         d="M 7.9999997,7.9999997 H 791.99997 V 1332.9999 H 7.9999997 Z"
+         id="path4" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6">
+      <path
+         d="M 0,0 H 799.99997 V 1341.3281 H 0 Z"
+         id="path6" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath8">
+      <path
+         d="M -1.1937736e-6,3.5406663e-7 189.99998,-2.220202e-5 189.99997,239.99998 -3.2612381e-5,239.99997 Z"
+         id="path8" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath9">
+      <path
+         d="M 7.9999997,7.9999997 H 791.99997 V 1332.9999 H 7.9999997 Z"
+         id="path9" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath11">
+      <path
+         d="M 0,0 H 799.99997 V 1341.3281 H 0 Z"
+         id="path11" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath13">
+      <path
+         d="M 4.6881854e-6,239.99999 V -2.4586333e-6 H 189.99999 V 239.99999 Z"
+         id="path13" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath14">
+      <path
+         d="M 7.9999997,7.9999997 H 791.99997 V 1332.9999 H 7.9999997 Z"
+         id="path14" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,0 H 799.99997 V 1341.3281 H 0 Z"
+         id="path16" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath18">
+      <path
+         d="M -2.9792363e-6,-5.4360578e-7 H 56.000006 V 23.999997 H -2.9792363e-6 Z"
+         clip-rule="evenodd"
+         id="path18" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath20">
+      <path
+         d="M 2.5054486e-6,-5.4360578e-7 H 56.000011 V 23.999997 H 2.5054486e-6 Z"
+         clip-rule="evenodd"
+         id="path20" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath22">
+      <path
+         d="M -9.8736888e-7,1.1808822e-7 H 30.000017 V 23.999998 H -9.8736888e-7 Z"
+         clip-rule="evenodd"
+         id="path22" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath25">
+      <path
+         d="M 1.9025525e-6,-17.000005 H 126.99999 V 6.9999923 H 1.9025525e-6 Z"
+         clip-rule="evenodd"
+         id="path25" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath41">
+      <path
+         d="M 1.218249e-7,-16.999998 H 194.00002 V 6.9999992 H 1.218249e-7 Z"
+         clip-rule="evenodd"
+         id="path41" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath56">
+      <path
+         d="M -1.0266741e-6,-16.999998 H 222 V 6.9999992 H -1.0266741e-6 Z"
+         clip-rule="evenodd"
+         id="path56" />
+    </clipPath>
+  </defs>
+  <g
+     id="g1"
+     transform="translate(-7.9999997,-7.9999997)">
+    <path
+       id="path1"
+       d="M 0,0 H 784 V 1325 H 0 Z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="translate(7.9999997,7.9999997)" />
+    <path
+       id="path2"
+       d="m 235.858,968.94501 -6.70199,7.34301 c -6.70202,7.34198 -20.10502,22.02698 -26.806,35.53598 -6.70202,13.509 -6.70202,25.843 -6.70202,32.009 V 1050"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,8.0020547,7.9999997)" />
+    <g
+       id="g6"
+       clip-path="url(#clipPath6)">
+      <g
+         clip-path="url(#clipPath4)"
+         id="g5">
+        <path
+           d="m 1,7 17,6 V 1 Z"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(-0.6168465,0.67584554,-0.67584554,-0.6168465,239.65167,886.75958)"
+           clip-path="url(#clipPath3)"
+           id="path5" />
+      </g>
+    </g>
+    <path
+       id="path7"
+       d="m 600.84198,968.94501 6.70105,7.34301 c 6.70197,7.34198 20.10498,22.02698 26.80597,35.53598 6.70203,13.509 6.70203,25.843 6.70203,32.009 V 1050"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,8.0020547,7.9999997)" />
+    <g
+       id="g11"
+       clip-path="url(#clipPath11)">
+      <g
+         clip-path="url(#clipPath9)"
+         id="g10">
+        <path
+           d="m 1,7 17,6 V 1 Z"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(0.61679895,0.67588896,-0.67588896,0.61679895,551.41505,878.12326)"
+           clip-path="url(#clipPath8)"
+           id="path10" />
+      </g>
+    </g>
+    <path
+       id="path12"
+       d="m 418.35001,505.25 v 3.29199 c 0,3.29102 0,9.875 0,19.33301 0,9.45801 0,21.79199 0,27.95801 V 562"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,8.0020547,7.9999997)" />
+    <g
+       id="g16"
+       clip-path="url(#clipPath16)">
+      <g
+         clip-path="url(#clipPath14)"
+         id="g15">
+        <path
+           d="M 18,7 9,13 1,7 9,1 Z"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           transform="matrix(0,0.91502284,-0.91502284,0,397.20705,453.84486)"
+           clip-path="url(#clipPath13)"
+           id="path15" />
+      </g>
+    </g>
+    <path
+       id="path17"
+       d="M 0,0 H 56 V 24 H 0 Z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(0.91502284,0,0,0.91502284,161.42566,923.93785)"
+       clip-path="url(#clipPath18)" />
+    <g
+       id="g18" />
+    <text
+       id="text18"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,161.42566,939.49324)"><tspan
+         id="tspan18"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">extends</tspan></text>
+    <path
+       id="path19"
+       d="M 0,0 H 56 V 24 H 0 Z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(0.91502284,0,0,0.91502284,568.97895,923.93785)"
+       clip-path="url(#clipPath20)" />
+    <g
+       id="g20" />
+    <text
+       id="text20"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,568.97895,939.49324)"><tspan
+         id="tspan20"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">extends</tspan></text>
+    <path
+       id="path21"
+       d="M 0,0 H 30 V 24 H 0 Z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(0.91502284,0,0,0.91502284,376.88315,477.4067)"
+       clip-path="url(#clipPath22)" />
+    <g
+       id="g22" />
+    <text
+       id="text22"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,376.88315,492.96209)"><tspan
+         id="tspan22"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">uses</tspan></text>
+    <path
+       id="path23"
+       d="M -170.86328,-207 H 170.86328 V 207 H -170.86328"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,711.65255)" />
+    <path
+       id="path24"
+       d="m -170.86328,-207 c 92.2881,0 184.576197,0 341.72656,0 m -341.72656,0 c 83.630202,0 167.2604081,0 341.72656,0 m 0,0 c 0,98.58965 0,197.1792984 0,414 m 0,-414 c 0,151.37434 0,302.74868 0,414 m 0,0 c -94.012366,0 -188.024731,0 -341.72656,0 m 341.72656,0 c -103.791678,0 -207.58335,0 -341.72656,0 m 0,0 c 0,-152.016743 0,-304.033485 0,-414 m 0,414 c 0,-133.727448 0,-267.454899 0,-414"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,711.65255)" />
+    <g
+       id="g24" />
+    <text
+       id="text24"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,356.11639,548.77849)"><tspan
+         id="tspan24"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">«abstract»</tspan></text>
+    <g
+       id="g25" />
+    <text
+       id="text25"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,332.61889,570.73905)"
+       clip-path="url(#clipPath25)"><tspan
+         id="tspan25"
+         style="font-variant:normal;font-weight:700;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">InterruptHandler</tspan></text>
+    <g
+       id="g26" />
+    <text
+       id="text26"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,642.11082)"><tspan
+         id="tspan26"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ constructor(interrupt_config)</tspan></text>
+    <g
+       id="g27" />
+    <text
+       id="text27"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,664.07133)"><tspan
+         id="tspan27"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ enable(status, type)</tspan></text>
+    <g
+       id="g28" />
+    <text
+       id="text28"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,686.03194)"><tspan
+         id="tspan28"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalEnable(status)</tspan></text>
+    <g
+       id="g29" />
+    <text
+       id="text29"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,707.99248)"><tspan
+         id="tspan29"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ disable(status, type)</tspan></text>
+    <g
+       id="g30" />
+    <text
+       id="text30"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,729.95302)"><tspan
+         id="tspan30"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalDisable(status)</tspan></text>
+    <g
+       id="g31" />
+    <text
+       id="text31"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,751.91357)"><tspan
+         id="tspan31"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ create(status, type)</tspan></text>
+    <g
+       id="g32" />
+    <text
+       id="text32"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,773.87411)"><tspan
+         id="tspan32"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalClear(status)</tspan></text>
+    <g
+       id="g33" />
+    <text
+       id="text33"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,795.83465)"><tspan
+         id="tspan33"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.8437459"
+         y="0">+ check(status) : InterruptType</tspan></text>
+    <g
+       id="g34" />
+    <text
+       id="text34"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,817.79519)"><tspan
+         id="tspan34"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isEnabled(status, type) : boolean</tspan></text>
+    <g
+       id="g35" />
+    <text
+       id="text35"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,839.75574)"><tspan
+         id="tspan35"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isGlobalEnabled(status) : boolean</tspan></text>
+    <g
+       id="g36" />
+    <text
+       id="text36"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,861.71628)"><tspan
+         id="tspan36"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ clear(status, type)</tspan></text>
+    <g
+       id="g37" />
+    <text
+       id="text37"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,245.43798,883.67682)"><tspan
+         id="tspan37"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ handle(status, type)</tspan></text>
+    <path
+       id="path37"
+       d="m -170.86328,-135 c 91.921683,0 183.843363,0 341.72656,0 m -341.72656,0 c 74.802863,0 149.605725,0 341.72656,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,711.65255)" />
+    <path
+       id="path38"
+       d="m -170.86328,-111 c 123.570346,0 247.140692,0 341.72656,0 m -341.72656,0 c 133.686438,0 267.372878,0 341.72656,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,711.65255)" />
+    <path
+       id="path39"
+       d="M -187.64844,-195 H 187.64844 V 195 H -187.64844"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,187.02486,1147.2035)" />
+    <path
+       id="path40"
+       d="m -187.64844,-195 c 127.685584,0 255.371165,0 375.29688,0 m -375.29688,0 c 140.301146,0 280.60229,0 375.29688,0 m 0,0 c 0,112.604393 0,225.208782 0,390 m 0,-390 c 0,155.208092 0,310.41618 0,390 m 0,0 c -148.298743,0 -296.59748,0 -375.29688,0 m 375.29688,0 c -121.204028,0 -242.408053,0 -375.29688,0 m 0,0 c 0,-129.194038 0,-258.388077 0,-390 m 0,390 c 0,-110.567635 0,-221.135271 0,-390"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,187.02486,1147.2035)" />
+    <g
+       id="g40" />
+    <text
+       id="text40"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,98.124655,995.30965)"
+       clip-path="url(#clipPath41)"><tspan
+         id="tspan40"
+         style="font-variant:normal;font-weight:700;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         dx="0 0 0 0 -1.515625 -0.95312506"
+         y="0">CREATORInterruptHandler</tspan></text>
+    <g
+       id="g41" />
+    <text
+       id="text41"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1066.6814)"><tspan
+         id="tspan41"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ constructor(syscall_handler)</tspan></text>
+    <g
+       id="g42" />
+    <text
+       id="text42"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1088.642)"><tspan
+         id="tspan42"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ enable(status, type)</tspan></text>
+    <g
+       id="g43" />
+    <text
+       id="text43"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1110.6024)"><tspan
+         id="tspan43"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ disable(status, type)</tspan></text>
+    <g
+       id="g44" />
+    <text
+       id="text44"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1132.563)"><tspan
+         id="tspan44"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalDisable(status)</tspan></text>
+    <g
+       id="g45" />
+    <text
+       id="text45"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1154.5236)"><tspan
+         id="tspan45"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalEnable(status)</tspan></text>
+    <g
+       id="g46" />
+    <text
+       id="text46"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1176.4842)"><tspan
+         id="tspan46"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ create(status, type)</tspan></text>
+    <g
+       id="g47" />
+    <text
+       id="text47"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1198.4447)"><tspan
+         id="tspan47"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalClear(status)</tspan></text>
+    <g
+       id="g48" />
+    <text
+       id="text48"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1220.4054)"><tspan
+         id="tspan48"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isGlobalEnabled(status) : boolean</tspan></text>
+    <g
+       id="g49" />
+    <text
+       id="text49"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1242.3657)"><tspan
+         id="tspan49"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isEnabled(status, type) : boolean</tspan></text>
+    <g
+       id="g50" />
+    <text
+       id="text50"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1264.3263)"><tspan
+         id="tspan50"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.8437459"
+         y="0">+ check(status) : InterruptType</tspan></text>
+    <g
+       id="g51" />
+    <text
+       id="text51"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1286.2869)"><tspan
+         id="tspan51"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ clear(status, type)</tspan></text>
+    <g
+       id="g52" />
+    <text
+       id="text52"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,26.302513,1308.2474)"><tspan
+         id="tspan52"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ handle(status, type)</tspan></text>
+    <path
+       id="path52"
+       d="m -187.64844,-147 c 147.006026,0 294.01205,0 375.29688,0 m -375.29688,0 c 109.966784,0 219.933562,0 375.29688,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,187.02486,1147.2035)" />
+    <path
+       id="path53"
+       d="m -187.64844,-123 c 92.238513,0 184.4770201,0 375.29688,0 m -375.29688,0 c 113.362826,0 226.725649,0 375.29688,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,187.02486,1147.2035)" />
+    <path
+       id="path54"
+       d="M -207.75391,-195 H 207.75391 V 195 H -207.75391"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,594.57818,1147.2035)" />
+    <path
+       id="path55"
+       d="m -207.75391,-195 c 145.876465,0 291.752926,0 415.50782,0 m -415.50782,0 c 164.823383,0 329.64676,0 415.50782,0 m 0,0 c 0,96.772499 0,193.544994 0,390 m 0,-390 c 0,152.734379 0,305.46876 0,390 m 0,0 c -86.98375,0 -173.967506,0 -415.50782,0 m 415.50782,0 c -140.371723,0 -280.743442,0 -415.50782,0 m 0,0 c 0,-122.832291 0,-245.664574 0,-390 m 0,390 c 0,-136.809132 0,-273.618263 0,-390"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,594.57818,1147.2035)" />
+    <g
+       id="g55" />
+    <text
+       id="text55"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,492.94631,995.30965)"
+       clip-path="url(#clipPath56)"><tspan
+         id="tspan55"
+         style="font-variant:normal;font-weight:700;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">ArchitectureInterruptHandler</tspan></text>
+    <g
+       id="g56" />
+    <text
+       id="text56"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1066.6814)"><tspan
+         id="tspan56"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ constructor(action_implementations)</tspan></text>
+    <g
+       id="g57" />
+    <text
+       id="text57"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1088.642)"><tspan
+         id="tspan57"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ enable(status, type)</tspan></text>
+    <g
+       id="g58" />
+    <text
+       id="text58"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1110.6024)"><tspan
+         id="tspan58"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ disable(status, type)</tspan></text>
+    <g
+       id="g59" />
+    <text
+       id="text59"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1132.563)"><tspan
+         id="tspan59"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalDisable(status)</tspan></text>
+    <g
+       id="g60" />
+    <text
+       id="text60"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1154.5236)"><tspan
+         id="tspan60"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalEnable(status)</tspan></text>
+    <g
+       id="g61" />
+    <text
+       id="text61"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1176.4842)"><tspan
+         id="tspan61"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ create(status, type)</tspan></text>
+    <g
+       id="g62" />
+    <text
+       id="text62"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1198.4447)"><tspan
+         id="tspan62"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalClear(status)</tspan></text>
+    <g
+       id="g63" />
+    <text
+       id="text63"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1220.4054)"><tspan
+         id="tspan63"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isGlobalEnabled(status) : boolean</tspan></text>
+    <g
+       id="g64" />
+    <text
+       id="text64"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1242.3657)"><tspan
+         id="tspan64"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isEnabled(status, type) : boolean</tspan></text>
+    <g
+       id="g65" />
+    <text
+       id="text65"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1264.3263)"><tspan
+         id="tspan65"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.8437459"
+         y="0">+ check(status) : InterruptType</tspan></text>
+    <g
+       id="g66" />
+    <text
+       id="text66"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1286.2869)"><tspan
+         id="tspan66"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ clear(status, type)</tspan></text>
+    <g
+       id="g67" />
+    <text
+       id="text67"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,415.45889,1308.2474)"><tspan
+         id="tspan67"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ handle(status, type)</tspan></text>
+    <path
+       id="path67"
+       d="m -207.75391,-147 c 86.65972,0 173.319435,0 415.50782,0 m -415.50782,0 c 106.92128,0 213.8425564,0 415.50782,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,594.57818,1147.2035)" />
+    <path
+       id="path68"
+       d="m -207.75391,-123 c 161.675289,0 323.35057,0 415.50782,0 m -415.50782,0 c 129.662418,0 259.324837,0 415.50782,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,594.57818,1147.2035)" />
+    <path
+       id="path69"
+       d="M -205.51953,-240 H 205.51953 V 240 H -205.51953"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,234.92567)" />
+    <path
+       id="path70"
+       d="m -205.51953,-240 c 153.358397,0 306.7168,0 411.03906,0 m -411.03906,0 c 139.047415,0 278.094824,0 411.03906,0 m 0,0 c 0,181.648331 0,363.29666 0,480 m 0,-480 c 0,179.602291 0,359.20458 0,480 m 0,0 c -162.657157,0 -325.31432,0 -411.03906,0 m 411.03906,0 c -94.33891,0 -188.677823,0 -411.03906,0 m 0,0 c 0,-164.585175 0,-329.170349 0,-480 m 0,480 c 0,-156.945595 0,-313.891182 0,-480"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,234.92567)" />
+    <g
+       id="g70" />
+    <text
+       id="text70"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,331.00335,41.855844)"><tspan
+         id="tspan70"
+         style="font-variant:normal;font-weight:700;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">InterruptManager</tspan></text>
+    <g
+       id="g71" />
+    <text
+       id="text71"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,85.776937)"><tspan
+         id="tspan71"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">- InterruptHandler handler</tspan></text>
+    <g
+       id="g72" />
+    <text
+       id="text72"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,107.73749)"><tspan
+         id="tspan72"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">- InterruptStatus status</tspan></text>
+    <g
+       id="g73" />
+    <text
+       id="text73"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,151.65858)"><tspan
+         id="tspan73"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ constructor(handler)</tspan></text>
+    <g
+       id="g74" />
+    <text
+       id="text74"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,173.61913)"><tspan
+         id="tspan74"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ switchHandler(handler) : InterruptManager</tspan></text>
+    <g
+       id="g75" />
+    <text
+       id="text75"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,195.5797)"><tspan
+         id="tspan75"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ enable(type)</tspan></text>
+    <g
+       id="g76" />
+    <text
+       id="text76"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,217.54022)"><tspan
+         id="tspan76"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalEnable()</tspan></text>
+    <g
+       id="g77" />
+    <text
+       id="text77"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,239.50079)"><tspan
+         id="tspan77"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ disable(type)</tspan></text>
+    <g
+       id="g78" />
+    <text
+       id="text78"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,261.46131)"><tspan
+         id="tspan78"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalDisable()</tspan></text>
+    <g
+       id="g79" />
+    <text
+       id="text79"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,283.42186)"><tspan
+         id="tspan79"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ create(type)</tspan></text>
+    <g
+       id="g80" />
+    <text
+       id="text80"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,305.38243)"><tspan
+         id="tspan80"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ globalClear()</tspan></text>
+    <g
+       id="g81" />
+    <text
+       id="text81"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,327.34297)"><tspan
+         id="tspan81"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.84375"
+         y="0">+ check() : InterruptType</tspan></text>
+    <g
+       id="g82" />
+    <text
+       id="text82"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,349.3035)"><tspan
+         id="tspan82"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isEnabled(type) : boolean</tspan></text>
+    <g
+       id="g83" />
+    <text
+       id="text83"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,371.26405)"><tspan
+         id="tspan83"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ isGlobalEnabled() : boolean</tspan></text>
+    <g
+       id="g84" />
+    <text
+       id="text84"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,393.22463)"><tspan
+         id="tspan84"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ clear(type)</tspan></text>
+    <g
+       id="g85" />
+    <text
+       id="text85"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,415.18518)"><tspan
+         id="tspan85"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ handle(type)</tspan></text>
+    <g
+       id="g86" />
+    <text
+       id="text86"
+       xml:space="preserve"
+       transform="matrix(0.91502284,0,0,0.91502284,213.72671,437.14568)"><tspan
+         id="tspan86"
+         style="font-variant:normal;font-weight:normal;font-size:16px;font-family:'Trebuchet MS';writing-mode:lr-tb;fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0">+ reset()</tspan></text>
+    <path
+       id="path86"
+       d="m -205.51953,-192 c 99.07635,0 198.1526858,0 411.03906,0 m -411.03906,0 c 162.174784,0 324.34957,0 411.03906,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,234.92567)" />
+    <path
+       id="path87"
+       d="m -205.51953,-120 c 93.50377,0 187.007544,0 411.03906,0 m -411.03906,0 c 112.555434,0 225.110877,0 411.03906,0"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.91502284,0,0,0.91502284,390.80151,234.92567)" />
+  </g>
+</svg>
