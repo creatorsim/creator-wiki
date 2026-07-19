@@ -67,8 +67,7 @@ Reference: [The RISC-V Instruction Set Manual Volume II: Privileged Architecture
 
 
 > [!NOTE]
-> More details in the [Master Thesis "Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR", by Luis Daniel Casais Mezquida](https://github.com/ldcas-uc3m/TFM/blob/main/report.pdf), and [RISC-V's Specification](https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications#ISA-Specifications).
-
+> More details in the [Master Thesis "Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR", by Luis Daniel Casais Mezquida](../../docs/interrupts-thesis.pdf), and [RISC-V's Specification](https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications#ISA-Specifications).
 
 ### Implemented features
 Here is the table of implemented RISC-V features:

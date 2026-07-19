@@ -25,5 +25,5 @@ The interrupt manager is stored in the core (`interruptManager`), and the interr
 
 
 > [!NOTE]
-> More details in the Master Thesis ["Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR"](https://github.com/ldcas-uc3m/TFM/blob/main/report.pdf), by Luis Daniel Casais Mezquida.
+> More details in the Master Thesis ["Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR"](../../docs/interrupts-thesis.pdf), by Luis Daniel Casais Mezquida.
 
