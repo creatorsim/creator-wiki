@@ -26,34 +26,92 @@
 
 ## Interrupts
 
-  The RISC-V-32 ISA defines different privilege modes that determine the level of access and control a process has over the system's resources levels, in particular, access to _Control Status Registers_ (CSRs), the privileged instruction set, and privileged ISA extensions. The instruction subset to control CSRs is provided in the _Zicsr_ extension.
+In RISC-V, when an interrupt happens, a bit is set in the `MIP` (_Machine Interrupt Pending_) control register.
+Depending on the type of interrupt, it sets a different bit. 
+For example:
+- Bit `3` (`MSIP`) is set to indicate a _software_ interrupt
+- Bit `11` (`MEIP`) is set to indicate an _external_ interrupt
 
- The ISA defines three levels: User/Application (U), Supervisor (S), and Machine (M), allowing implementations to provide one, two, or three of them (There are only three supported combinations: M-level, M-level and U-level, or all three). M-level is the highest privilege level, while U-level is intended for conventional applications and S-level for operating systems.
+Then, the value of the current instruction is stored in the `MEPC` control register. 
+The value for the interrupt handler is stored in the `MTVEC` control register, where bits `1` and `0` (MODE) determine the vector mode, and the rest of the register encodes the base address (BASE).  
+The different modes are:
+- `0` (direct): All traps set `pc` to the base address
+- `1` (vectored): Asynchronous interrupts set `pc` to $BASE+4\times cause$
 
-RISC-V handles exceptions and interrupts by generating traps.
-As a trap involves elevating the privilege level, e.g. requesting an OS system call from a user program, both M and S privilege levels include a set of CSRs for handling them [^1]. The `mstatus` (_Machine Status_) register keeps track of and controls the CPU's current operating state.
-In this register, there are several interrupt-related fields: field `MIE` (_Machine Interrupt Enable_) controls whether interrupts are globally enabled or disabled for that privilege mode, field `MPP` (_Machine Previous Privilege Mode_) holds the previous privilege mode, and, to allow nesting of interrupts, field `MPIE` stores the previous value of `MIE` when an interrupt occurs.
+Here we implemented the _direct_ mode, meaning that `MTVEC` holds `0x00000000`, the address of the handler.
 
-The `mie` (_Machine Interrupt Enable_) register allows for a finer control of interrupts, allowing the programmer to set which types of interrupts are enabled: field `MSIE` (_Machine Software Interrupt Enable_), `MTIE` (_Machine Timer Interrupt Enable_), and `MEIE` (_Machine External Interrupt Enable_) control software, timer, and external interrupts, respectively.
+> [!NOTE]
+> As we'll see in [Interrupt handling](#interrupt-handling), this requires the
+> handling routine to be at the start of the text (`.text`) segment.
 
-The `mip` (_Machine Interrupt Pending_) register indicates the interrupts that are currently pending. Similarly to register `mie`, it specifies the type of interrupt on specific fields: `MSIP` (_Machine Software Interrupt Pending_), `MTIP` (_Machine Timer Interrupt Pending_), and `MEIP` (_Machine External Interrupt Pending_).
-Each of these fields may be writable or may be read-only. Register `mcause` (_Machine Cause_) provides information about the event that caused the trap. This register contains a field `I` specifying if the cause was an interrupt or an exception, while the rest of the bits are reserved for the exception code. RISC-V defines some of these exception codes, while others are left for the implementation to use.
+Also, the cause of the interrupt is stored in the `MCAUSE` (_Machine Cause_).
+This control register is divided into bit `31`, which holds the interrupt type, and the rest of the bits, each bit corresponding to a specific exception code.
+Some of the most used are:
+- `0`-`3` (`0x00000008`): Machine software interrupt
+- `0`-`8` (`0x00000100`): Machine external interrupt - `1`-`11` (`0x80000800`): Environment call from U-mode
 
-Register `mtvec` (_Machine Trap-Vector Base-Address_) holds the trap vector configuration.
-Depending on the value of the `MODE` field, RISC-V allows for polled interrupts (_direct mode_, with a value of `0`) or vectored interrupts (_vectored mode_, with a value of `1`).
+Therefore, in the case of the `ecall` instruction, bit `3` of `MIP` and bit 8 of `MCAUSE` are set.
 
-In direct mode, all traps cause the PC to be set to the address in the `BASE` field, while on vectored mode, traps set the PC to address _BASE + 4×cause_, _cause_ being the exception code found in `mcause`.
-  Finally, register `mepc` (_Machine Exception Program Counter_) holds the address of the instruction that generated the exception while it is handled.
-
-
-When a trap is taken to M-mode, the corresponding flag in `mip` is set, and the `MIE` field in `mstatus` and the corresponding flag in `mie` are checked to determine if that interrupt is enabled.
-If it's enabled, the `MIE` field is copied into the `MPIE` field of `mstatus` and `MIE` is cleared, disabling further interrupts.
-Then, the previous privilege mode is stored in the `MPP` field of `mstatus`, the cause of the exception is encoded into `mcause`, the current PC is stored into the `mepc` register, and the PC is set to the address specified by `mtvec`.
-When the interrupt handler finishes, it calls `mret`, which resets the privilege mode (reading the `MPP` field in `mstatus`), re-enables interrupts (by copying back field `MPIE` to `MIE` in `mstatus`), and sets the PC to the value of `mepc`.
-
-With regard to the `mip` register, the ISA states that if the field is writable, a pending interrupt can be cleared by clearing the field, but if the field is read-only, the implementation must provide some other mechanism for clearing the pending interrupt.
-
-More details in the [Master Thesis "Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR", by Luis Daniel Casais Mezquida](https://github.com/ldcas-uc3m/TFM/blob/main/report.pdf), and [RISC-V's Specification](https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications#ISA-Specifications).
+### Interrupt enabling
+The `MIE` control register is in charge, together with `MSTATUS`, of enabling/disabling interrupt types. The types use the same bits as in the `MIP` register.
 
 
-[^1]: As they are virtually the same, only the M-level set will be described.
+### Interrupt handling
+First, we need to talk about some new privileged instructions:
+
+- `mret`: This instruction is used to return from an interrupt, which saves the `MEPC` to the `PC`, clears the interrupt by clearing bits `3` and `11` in `MIP`, and resetting `MCAUSE` to `0`. It also changes the execution mode back to `ExecutionMode.User` (U-mode)
+- `csrrw`: This instruction switches the values of a control register and a user register. It's mainly used to store the values of user registers while handling the interrupt, as we can't operate with control registers. 
+The `MSCRATCH` control register is provided in order to add an extra register.
+
+Reference: [The RISC-V Instruction Set Manual Volume II: Privileged Architecture](https://github.com/riscv/riscv-isa-manual/), chapters 3.1, 3.3.1 and 3.3.2.
+
+
+> [!NOTE]
+> More details in the [Master Thesis "Implementing Interrupts, Timers, and Memory-Mapped I/O in CREATOR", by Luis Daniel Casais Mezquida](../../docs/interrupts-thesis.pdf), and [RISC-V's Specification](https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications#ISA-Specifications).
+
+### Implemented features
+Here is the table of implemented RISC-V features:
+
+| Chapter                                   | Feature                                                                   | Status             | Notes                                                                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------- | :----------------: | ---------------------------------------------------------------------------------------------------------------------------- |
+| I.7.1                                     | CSR Instructions                                                          | ✅ | Only `csrrw`, and without checking for register `x0`                                                                         |
+| II.3.1.1 - II.3.1.5                       | Processor and ISA information (`misa`, `mvendorid`, etc.)                 | ❌                |                                                                                                                              |
+| II.3.1.6                                  | `mstatus`/`mstatush`                                                      | ✅ | Only _Privilege and Global Interrupt-Enable_ (chapter II.3.1.6.1). Only `mstatus`, as only the 32-bit version is implemented |
+| II.3.1.7, II.3.1.9, II.3.1.13 - II.3.1.16 | Interrupts (`mtvec`, `mip`, `mie`, `mscratch`, `mepc`, `mcause`)          | ✅ | No `mtval`                                                                                                                   |
+| II.3.1.8                                  | Trap Delegation                                                           | ❌                |                                                                                                                              |
+| II.3.1.10                                 | Hardware performance Monitor                                              | ❌                |                                                                                                                              |
+| II.3.1.11 - II.3.1.12                     | Counters                                                                  | ❌                |                                                                                                                              |
+| II.3.2.1 - II.3.3.2                       | Environmen Calls and Trap-return                                          | ✅ | Not breakpoints                                                                                                              |
+| II.3.1.17 - II.3.2, II.3.6 - II.3.7       | Environment, Security and Memory                                          | ❌                |                                                                                                                              |
+| II.10                                     | Supervisor-Level ISA                                                      | ❌                |                                                                                                                              |
+| II.4 - II.9, II.11 - II.18                | Volume II Extensions                                                      | ❌                |                                                                                                                              |
+
+
+
+## Devices
+There are two memory-mapped devices defined.
+
+### `console`
+Handles console I/O operations.
+
+**Address Map**:
+```
+0xF0000000: Control register
+0xF0000004: Status register
+0xF0000008-0xF000000F: Data buffer (8 bytes)
+```
+
+Information about how the device works in the [Devices](../development/devices.md#consoledevice) section.
+
+
+### `os`
+Handles OS-level operations.
+
+**Address Map** (typical):
+```
+0xF0000010: Control register
+0xF0000014: Status register
+0xF0000018-0xF000001F: Data buffer (8 bytes)
+```
+
+Information about how the device works in the [Devices](../development/devices.md#osdriver) section.
