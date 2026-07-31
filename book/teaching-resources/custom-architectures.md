@@ -258,7 +258,7 @@ Now, let's take our architecture and add support for some simple maskable and no
 We'll define two new 1-bit integer registers `MIP` (_Maskable Interrupt Pending_) and `NIP` (_Nonmaskable Interrupt Pending_) that will be set to `1` when an interrupt of the type is pending. We'll also define another 1-bit integer register `IE` to enable (value of `1`) and disable (value of `0`) maskable interrupts.
 
 We just need to add them to `simplearch.yml`:
-```yml
+```yaml
 register_files:
   # ...
   - name: Integer registers
@@ -301,7 +301,7 @@ First, we need to define how to determine if an interrupt happened. CREATOR has 
 > [!NOTE]
 > You don't have to check if interrupts are enabled here, we'll define that later.
 
-```yml
+```yaml
 interrupts:
   check: |
     if (registers.NIP) return InterruptType.Nonmaskable;
@@ -311,7 +311,7 @@ interrupts:
 
 
 Then, we must define how different types of interrupts can be created and cleared. We'll receive the desired type (`InterruptType`) inside the `type` variable:
-```yml
+```yaml
 interrupts:
   # ...
   create: |
@@ -343,7 +343,7 @@ interrupts:
 > `clear` is optional, it gets overriten by `global_clear` if it's not defined
 
 Next, how they can be enabled and disabled, per type (and globally), as well as how to check if they are enabled. For the sake of simplicity, we'll assume nonmaskable interrupts can't be disabled.
-```yml
+```yaml
 # ...
 interrupts:
   # ...
@@ -393,7 +393,7 @@ Finally, we define the custom interrupt handler. This handler will disable inter
 > [!NOTE]
 > Using these CAPI functions is recommended way of doing it, as it allows the application to (secretly) keep track of these interrupts.
 
-```yml
+```yaml
 interrupts:
   handlers:
     custom: |
@@ -411,7 +411,7 @@ interrupts:
 <!-- RETI -->
 
 Many architectures have a specific instruction to return from an interrupt, so let's make one, `reti`. This instruction will clear and enable interrupts and jump back to the address stored in the stack:
-```yml
+```yaml
 instructions:
   base:
     # ...
