@@ -22,7 +22,7 @@ The actual definition for an instruction is a simple JavaScript code block to ma
 
 Let's define a simple 8-bit architecture with a few instructions.
 
-The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
+The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be case-sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
 
 > [!IMPORTANT]
 > The value of the program counter register (`program_counter`) inside the instruction definitions is affected by the `pc_offset`.
