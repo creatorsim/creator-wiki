@@ -231,6 +231,92 @@ directives:
     size: 8
 ```
 
+## Pseudoinstructions
+
+Pseudoinstructions are special instructions recognized by the assembler that get automatically expanded to a sequence of instructions recognized by the simulator during execution. Their definition in the architecture is very similar to real instructions:
+
+```yaml
+pseudoinstructions:
+  base:
+    - name: mv
+      fields:
+        - field: reg1
+          type: INT-Reg
+          suffix: ","
+        - field: reg2
+          type: INT-Reg
+      definition: |
+        addi reg1, reg2, 0;
+      help: Copy the value in register rs2 into register rd.
+```
+
+The main difference with real instructions is their `definition` field. Instead of being used during execution of the program to manipulate the simulator state, it is used to define how the instruction should be transformed into a sequence of instructions. The definition can take one of two forms: a instruction sequence template, or a JavaScript function body. We'll describe each form below.
+
+> [!NOTE]
+> While not recommended, other pseudoinstructions can be used in the definition of a pseudoinstruction. The pseudoinstructions are expanded recursively until all instructions are real.
+
+
+### Instruction Sequence Form
+
+This is the simplest method to use, although it's still enough for most cases. This method allows transforming the pseudoinstruction into a single, fixed instruction sequence. In this case, the definition field should be a single string containing the resulting assembly instructions, separated by newlines or semicolons. The example above uses this method.
+
+In order to forward the arguments of the pseudoinstruction to the resulting instructions, the name of the corresponding fields can be used as placeholders for the value. This works even in sub-expressions, allowing arithmetic manipulation of the arguments during the transformation. [Modifiers](#modifiers) can be very useful for doing bit manipulation (e.g extracting a range of bits out of an immediate value) during the expansion of a pseudoinstructions. For PC-relative address calculations, the `.` symbol always evaluates to the address in which the surrounding instruction will be loaded into. Using this, for example, the `la` RISC-V pseudoinstruction can be defined as follows:
+
+```yaml
+definition: |
+    auipc rd, %hi(addr - .);
+    addi rd, rd, %lo(addr - (. - 4));
+```
+
+> [!NOTE]
+> This form allows the use of forward references by the user. For this reason, this form should be preferred when possible.
+
+### JavaScript Function Form
+
+This method allows implementing complex transformations of the pseudoinstruction. It's mostly used when a pseudoinstruction can conditionally expand into multiple different instruction sequences, or when complex processing of its arguments is needed. In this case, the definition field should be the body of a JavaScript function prefixed by `js:\n`. The signature of this function should be:
+
+```ts
+(pc: bigint, args: Array<number | bigint | string | null>) => string
+```
+
+Where:
+
+- `pc`: address in which the pseudoinstruction is being assembled into.
+- `args`: array of evaluated pseudoinstruction arguments in the order they appear in the assembly syntax, where:
+  - `number` is used for expressions that evaluate to a float.
+  - `bigint` is used for expressions that evaluate to an integer.
+  - `string` is used for single identifiers (typically register names).
+  - `null` is used for other expressions that can't be evaluated (expressions containing undefined labels/forward references, or other errors like division by 0).
+- The returned string must be the definition in instruction sequence form, as described in the previous section.
+- The function is allowed to throw any `JS` value that can be converted to a string, which will be displayed in error messages
+
+> [!NOTE]
+> In this form, it's up to the definition whether to throw an error on `null` arguments or simply forward the expression using its field name in the returned string. When possible, the later should be preferred as it allows forward references and provides better errors for the user when the expression contains errors.
+
+Example usage of this method:
+
+```yaml
+pseudoinstructions:
+  base:
+    - name: li
+      fields:
+        - field: rd
+          type: INT-Reg
+          suffix: ","
+        - field: val
+          type: imm-signed
+      definition: |
+        js:
+        const val = args[1];
+        // If the value is small (1 byte signed), use a single instruction
+        if (val !== null && val >= -128 && val <= 127) return "addi rd, x0, val";
+        // Otherwise, use multiple instructions
+        return `
+          lui rd, val >> 8;
+          ori rd, rd, val & 0xFF;
+        `
+      help: Load the immediate, imm, into register rd.
+```
 
 <!-- ## TODO: Extensions -->
 <!-- Extensions are supposed to be enabled/disabled, but that's currently not wired up -->
