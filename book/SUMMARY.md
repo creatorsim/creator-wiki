@@ -71,6 +71,7 @@
 * [Validating program execution](teaching-resources/validator.md)
 * [Creating Custom Architectures](teaching-resources/custom-architectures.md)
     * [Pseudoinstructions](teaching-resources/custom-architectures.md#pseudoinstructions)
+    * [Modifiers](teaching-resources/custom-architectures.md#modifiers)
     * [Interrupt Support](teaching-resources/custom-architectures.md#interrupt-support)
     * [Privileged Instructions](teaching-resources/custom-architectures.md#privileged-instructions)
     * [Timers](teaching-resources/custom-architectures.md#timers)
