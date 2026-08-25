@@ -18,7 +18,7 @@ jobs:
       - name: Build CREATOR Wiki
         run: |
           uv sync --frozen
-          uv run mkdocs build --strict
+          uv run zensical build --strict
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
