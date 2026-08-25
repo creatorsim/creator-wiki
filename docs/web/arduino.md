@@ -342,16 +342,16 @@ The `attachInterrupt` function takes the following parameters:
 - The memory address where the interrupt service routine is located (in this case, we call it `blink`)
 - The interrupt mode, that can be one of the following:
 
-| Mode        | Value   | Usage                                                                                                              |
-| ----------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
-| `DISABLED`  | `0x00`  | Interrupt disabled                                                                                                 |
-| `RISING`    | `0x01`  | Interrupt triggered on the rising edge (when the pin changes from LOW to HIGH)                                     |
-| `FALLING`   | `0x02`  | Interrupt triggered on the falling edge (when the pin changes from HIGH to LOW)                                    |
-| `CHANGE`    | `0x03`  | Interrupt triggered on any change of the pin state (both LOW→HIGH and HIGH→LOW)                                    |
-| `ONLOW`     | `0x04`  | Interrupt triggered while the pin remains LOW                                                                      |
-| `ONHIGH`    | `0x05`  | Interrupt triggered while the pin remains HIGH                                                                     |
-| `ONLOW_WE`  | `0x06`  | Same as `ONLOW`, but with write enable — allows modifications or writing to related registers while the pin is LOW |
-| `ONHIGH_WE` | `0x07`  | Same as `ONHIGH`, but with write enable                                                                            |
+    | Mode        | Value   | Usage                                                                                                              |
+    | ----------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+    | `DISABLED`  | `0x00`  | Interrupt disabled                                                                                                 |
+    | `RISING`    | `0x01`  | Interrupt triggered on the rising edge (when the pin changes from LOW to HIGH)                                     |
+    | `FALLING`   | `0x02`  | Interrupt triggered on the falling edge (when the pin changes from HIGH to LOW)                                    |
+    | `CHANGE`    | `0x03`  | Interrupt triggered on any change of the pin state (both LOW→HIGH and HIGH→LOW)                                    |
+    | `ONLOW`     | `0x04`  | Interrupt triggered while the pin remains LOW                                                                      |
+    | `ONHIGH`    | `0x05`  | Interrupt triggered while the pin remains HIGH                                                                     |
+    | `ONLOW_WE`  | `0x06`  | Same as `ONLOW`, but with write enable — allows modifications or writing to related registers while the pin is LOW |
+    | `ONHIGH_WE` | `0x07`  | Same as `ONHIGH`, but with write enable                                                                            |
 
 In this case, as we want the interruption when the button is pressed, we choose the `ON_LOW` mode.
 
