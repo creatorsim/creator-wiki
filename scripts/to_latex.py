@@ -1,13 +1,9 @@
-#!/usr/env/python3
-
-
+import os
 import re
 import shutil
 import subprocess
 import sys
-import os
 from pathlib import Path
-
 
 PANDOC_PREAMBLE = r"""
 % Pandoc stuff
@@ -142,10 +138,10 @@ if __name__ == "__main__":
 
     # copy book to out dir
     shutil.copytree(
-        Path("book/"),
+        Path("docs/"),
         Path(OUT_DIR),
         dirs_exist_ok=True,
-        ignore=shutil.ignore_patterns("SUMMARY.md", "styles", "development"),
+        ignore=shutil.ignore_patterns("development", "assets"),
     )
 
     with open(Path(OUT_DIR) / "main.tex", "w") as main_fd:
@@ -176,7 +172,7 @@ if __name__ == "__main__":
                     print(tex_file)
 
                     # convert
-                    subprocess.run(["pandoc", md_file, "-o", tex_file])
+                    subprocess.run(["pandoc", md_file, "-o", tex_file], check=False)
 
                     # remove preamble from TEX file
                     with open(tex_file, "r") as fd:

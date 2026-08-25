@@ -4,9 +4,9 @@
 
 The `to_latex.py` script transforms the wiki into a basic LaTeX document, using [Pandoc](https://pandoc.org/).
 
-To use it, run (in the project's root folder):
+To use it, run (**in the project's root folder**):
 ```
-bun tex OUT_DIR
+uv run scripts/to_latex.py OUT_DIR
 ```
 
 It will output a `main.tex` file as well as other folders.

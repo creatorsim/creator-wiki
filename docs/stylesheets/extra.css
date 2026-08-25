@@ -1,0 +1,12 @@
+/* Reduce stacked margins below image captions */
+.md-typeset figure {
+  margin-bottom: 0.6em;
+}
+
+.md-typeset figcaption {
+  margin: 0.4em auto 0;
+}
+
+.md-typeset figcaption p {
+  margin: 0;
+}
