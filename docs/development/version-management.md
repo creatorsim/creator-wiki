@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/code-branch
+---
+
 # Version Management System
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/box-open
+---
+
 # Project Setup
 !!! warning
     If you clone the project, Make sure to initialize the [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).

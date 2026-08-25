@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/circle-check
+---
+
 # Validating program execution
 The [CREATOR CLI](../cli/overview.md) allows to validate the execution of a program.
 

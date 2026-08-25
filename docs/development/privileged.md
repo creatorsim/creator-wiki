@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/shield-halved
+---
+
 # Privileged Instructions and Execution Modes
 
 A privileged instruction is an instruction that can only be executed in a privileged execution mode. In CREATOR, we define two execution modes: _user_ (non-privileged) and _kernel_ (privileged).

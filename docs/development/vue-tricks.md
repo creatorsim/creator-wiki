@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/code
+---
+
 # Vue 3 tricks
 Here are some tricks you'll see throughout the code...
 

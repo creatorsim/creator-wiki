@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/plug
+---
+
 # CREATOR API (CAPI)
 
 CAPI allows instruction definitions to interact with custom CREATOR functions.

@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/sliders
+---
+
 # Command-Line Options
 
 The CREATOR CLI accepts various command-line options to configure architecture, input files, and behavior.

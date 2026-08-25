@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/download
+---
+
 # Installation
 
 ## Installing CREATOR CLI

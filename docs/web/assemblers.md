@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/microchip
+---
+
 # Assemblers
 
 CREATOR has support for a modular assembler system, allowing users to choose from multiple assemblers for different architectures. This chapter provides an overview of the available assemblers, their features, and how to use them within CREATOR.

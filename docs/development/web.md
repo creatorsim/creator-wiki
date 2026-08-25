@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/globe
+---
+
 # Web application
 The Web application is written in [Vue.js 3](https://vuejs.org).
 

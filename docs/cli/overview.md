@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/map
+---
+
 # CLI User Guide
 
 The CREATOR Command-Line Interface (CLI) provides a powerful text-based environment for assembly programming, debugging, and testing. It's designed for users who prefer working in a terminal and offers advanced features for development and automation.

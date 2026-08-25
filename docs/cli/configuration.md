@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/gear
+---
+
 # Configuration
 
 CREATOR supports extensive configuration through YAML files, allowing you to customize behavior, create command aliases, and define keyboard shortcuts.
