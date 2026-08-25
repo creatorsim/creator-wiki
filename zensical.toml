@@ -12,7 +12,7 @@ extra_css = ["stylesheets/extra.css"]
 nav = [
   { "Home" = "index.md" },
   { "Web User Guide" = [
-    "web/overview.md",
+    { Overview = "web/overview.md" },
     "web/user-interface.md",
     "web/editor-features.md",
     "web/assemblers.md",
@@ -22,7 +22,7 @@ nav = [
     "web/arduino.md",
   ] },
   { "CLI User Guide" = [
-    "cli/overview.md",
+    { Overview = "cli/overview.md" },
     "cli/installation.md",
     "cli/command-line-options.md",
     "cli/commands-reference.md",
@@ -34,7 +34,7 @@ nav = [
     "architecture/z80.md",
   ] },
   { "Teaching Resources" = [
-    "teaching-resources/overview.md",
+    { Overview = "teaching-resources/overview.md" },
     "teaching-resources/validator.md",
     "teaching-resources/custom-architectures.md",
     "teaching-resources/remote-lab.md",
@@ -78,13 +78,15 @@ admonition = {}
 attr_list = {}
 footnotes = {}
 md_in_html = {}
+toc.permalink = true
+toc.toc_depth = 3
+zensical.extensions.glightbox = {}
 pymdownx.blocks.caption = {}
 pymdownx.details = {}
 pymdownx.highlight.anchor_linenums = true
 pymdownx.superfences = {}
-toc.permalink = true
-toc.toc_depth = 3
-zensical.extensions.glightbox = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
 
 
 [project.theme]
@@ -95,6 +97,7 @@ features = [
   "content.code.copy",
   "navigation.footer",
   "navigation.top",
+  "navigation.tabs",
 ]
 
 [project.theme.icon]
@@ -105,28 +108,31 @@ repo = "fontawesome/brands/github"
 # auto
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
-primary = "blue grey"
+primary = "custom"
+accent = "custom"
 
 [project.theme.palette.toggle]
-icon = "material/brightness-auto"
+icon = "fontawesome/solid/circle-half-stroke"
 name = "Switch to light mode"
 
 # light
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
 scheme = "default"
-primary = "blue grey"
+primary = "custom"
+accent = "custom"
 
 [project.theme.palette.toggle]
-icon = "material/brightness-7"
+icon = "fontawesome/solid/sun"
 name = "Switch to dark mode"
 
 # dark
 [[project.theme.palette]]
 media = "(prefers-color-scheme: dark)"
 scheme = "slate"
-primary = "blue grey"
+primary = "custom"
+accent = "custom"
 
 [project.theme.palette.toggle]
-icon = "material/brightness-4"
-name = "Switch to light mode"
+icon = "fontawesome/solid/moon"
+name = "Switch to system preference"

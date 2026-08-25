@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/cloud
+---
+
 # CREATOR Remote Laboratory
 
 CREATOR's Remote Laboratory allows students to execute their programs in remote ESP32 hardware provided by their teachers.

@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/list-ul
+---
+
 # Commands Reference
 
 Complete reference for all CREATOR CLI commands. Commands are case-insensitive and support [aliases](#command-aliases) defined in your configuration.

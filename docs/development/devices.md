@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/plug
+---
+
 # Devices in CREATOR
 
 Devices in CREATOR simulate the behavior of different components that the simulator can interact with, e.g. a terminal, a hard drive, etc.

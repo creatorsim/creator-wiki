@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/map
+---
+
 # Teaching Resources
 CREATOR is a powerful tool for teaching computer architecture and assembly programming. This document provides resources and guidance for educators looking to integrate CREATOR into their curriculum.
 

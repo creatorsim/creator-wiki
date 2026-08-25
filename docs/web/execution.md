@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/play
+---
+
 # Execution Control
 
 The execution control panel allows you to run, step through, and reset your assembly programs. It provides essential controls for managing program execution within the simulator.

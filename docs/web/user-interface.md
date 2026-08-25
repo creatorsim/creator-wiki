@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/table-columns
+---
+
 # User Interface
 
 The CREATOR web interface is designed for efficiency and ease of use. This guide covers all UI components and their functions.
@@ -15,7 +19,7 @@ Architecture selection view for choosing processor architecture.
 
 ## Editor View
 
-CREATOR features a powerful code editor based on the Monaco Editor (the same editor used in VS Code). The editor supports syntax highlighting, IntelliSense, line numbers, breakpoints, and more. For specific editor features, refer to the [Editor Features](editor-features.md) chapter.
+CREATOR features a powerful code editor based on the [Monaco Editor](https://microsoft.github.io/monaco-editor/) (the same editor used in [VS Code](https://github.com/microsoft/vscode)). The editor supports syntax highlighting, IntelliSense, line numbers, breakpoints, and more. For specific editor features, refer to the [Editor Features](editor-features.md) chapter.
 
 ![Editor Default](img/editor/default.png){ loading=lazy }
 /// caption

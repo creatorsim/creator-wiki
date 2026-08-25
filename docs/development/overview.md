@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/map
+---
+
 # Architecture Overview
 
 This guide covers extending and developing CREATOR, including architecture, core internals, and customization.

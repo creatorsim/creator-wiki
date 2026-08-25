@@ -1,6 +1,10 @@
+---
+icon: fontawesome/solid/file-code
+---
+
 # Editor Features
 
-The CREATOR web editor is based on Monaco Editor, the same editor that powers Visual Studio Code.
+The CREATOR web editor is based on [Monaco Editor](https://microsoft.github.io/monaco-editor/), the same editor that powers [VS Code](https://github.com/microsoft/vscode).
 
 ## Syntax Highlighting
 

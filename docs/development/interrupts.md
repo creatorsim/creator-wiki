@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/bell
+---
+
 # Interrupts
 
 CREATOR supports a fully configurable interrupt system for simulating asynchronous events and exception handling, with multiple interrupt types. However, to prevent the user having to understand and implement this system to be able to use system calls (which require using interrupts), the interrupt manager allows switching between two interrupt handlers: the default "CREATOR" handler - which only handles system calls - and a custom architecture handler.

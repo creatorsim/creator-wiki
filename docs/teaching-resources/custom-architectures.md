@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/puzzle-piece
+---
+
 # Creating Custom Architectures
 
 CREATOR supports defining custom architectures through YAML configuration files. This allows adding new instruction sets or modifying existing ones.

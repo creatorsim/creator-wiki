@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/network-wired
+---
+
 # CREATOR Gateway
 
 CREATOR supports the execution of RISC-V programs in real hardware devices.

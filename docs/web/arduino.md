@@ -1,3 +1,7 @@
+---
+icon: fontawesome/solid/memory
+---
+
 # CREATOR Arduino module (CREATino)
 CREATino allows the user to add custom Arduino libraries to their programs.
 
