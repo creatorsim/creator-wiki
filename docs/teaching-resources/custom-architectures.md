@@ -374,31 +374,6 @@ Where:
 
 
 
-## Modifiers
-
-Modifiers are a set of predefined operators which allow to easily perform bit manipulation on expressions. They allow easily taking a slice of bits from their input. In the assembly code, modifiers can be used in expressions as `%<name>(<expression>)` (e.g. `lui rd, %hi(0xDEADBEEF)`).
-
-Where:
-
-- `range` defines the slice of bits to take, using a right-exclusive range.
-- `lower_signed` defines whether the `start - 1` bit should be added to the result. This is mostly intended for cases where the modifiers are used to split a constant into multiple different parts for loading, when the lower bits will be added as a signed integer to the loaded upper bits.
-- `output_signed` defines whether resulting bit string should be interpreted as a signed or unsigned integer.
-
-!!! example
-
-    ```yaml
-    modifiers:
-      hi:
-        lower_signed: true
-        output_signed: false
-        range: [12, 32]
-      lo:
-        lower_signed: false
-        output_signed: true
-        range: [0, 12]
-    ```
-
-
 <!-- ## TODO: Extensions -->
 <!-- Extensions are supposed to be enabled/disabled, but that's currently not wired up -->
 
