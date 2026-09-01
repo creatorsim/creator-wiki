@@ -22,7 +22,7 @@ The actual definition for an instruction is a simple JavaScript code block to ma
 
 Let's define a simple 8-bit architecture with a few instructions.
 
-The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
+The first step is to create a YAML file, e.g., `simplearch.yml`, and fill out the `config`. We want an architecture where the word size and byte size are both 8 bits. We'll also make it little-endian, although it doesn't matter in this specific case because a word contains only one byte. `pc_offset` will be `0`. The entry point will be a function named `main`, or address `0x0` if it doesn't exist; we'll use the `;` character to write comments, and the names of the registers won't be case-sensitive (`PC` == `pc`). We'll also enable memory alignment and passing convention checks.
 
 > [!IMPORTANT]
 > The value of the program counter register (`program_counter`) inside the instruction definitions is affected by the `pc_offset`.
@@ -231,6 +231,114 @@ directives:
     size: 8
 ```
 
+## Pseudoinstructions
+
+Pseudoinstructions are special instructions recognized by the assembler that get automatically expanded to a sequence of instructions recognized by the simulator during execution. Their definition in the architecture is very similar to real instructions:
+
+```yaml
+pseudoinstructions:
+  base:
+    - name: mv
+      fields:
+        - field: reg1
+          type: INT-Reg
+          suffix: ","
+        - field: reg2
+          type: INT-Reg
+      definition: |
+        addi reg1, reg2, 0;
+      help: Copy the value in register rs2 into register rd.
+```
+
+The main difference with real instructions is their `definition` field. Instead of being used during execution of the program to manipulate the simulator state, it is used to define how the instruction should be transformed into a sequence of instructions. The definition can take one of two forms: a instruction sequence template, or a JavaScript function body. We'll describe each form below.
+
+> [!NOTE]
+> While not recommended, other pseudoinstructions can be used in the definition of a pseudoinstruction. The pseudoinstructions are expanded recursively until all instructions are real.
+
+
+### Instruction Sequence Form
+
+This is the simplest method to use, although it's still enough for most cases. This method allows transforming the pseudoinstruction into a single, fixed instruction sequence. In this case, the definition field should be a single string containing the resulting assembly instructions, separated by newlines or semicolons. The example above uses this method.
+
+In order to forward the arguments of the pseudoinstruction to the resulting instructions, the name of the corresponding fields can be used as placeholders for the value. This works even in sub-expressions, allowing arithmetic manipulation of the arguments during the transformation. [Modifiers](#modifiers) can be very useful for doing bit manipulation (e.g extracting a range of bits out of an immediate value) during the expansion of a pseudoinstructions. For PC-relative address calculations, the `.` symbol always evaluates to the address in which the surrounding instruction will be loaded into. Using this, for example, the `la` RISC-V pseudoinstruction can be defined as follows:
+
+```yaml
+definition: |
+    auipc rd, %hi(addr - .);
+    addi rd, rd, %lo(addr - (. - 4));
+```
+
+> [!NOTE]
+> This form allows the use of forward references by the user. For this reason, this form should be preferred when possible.
+
+### JavaScript Function Form
+
+This method allows implementing complex transformations of the pseudoinstruction. It's mostly used when a pseudoinstruction can conditionally expand into multiple different instruction sequences, or when complex processing of its arguments is needed. In this case, the definition field should be the body of a JavaScript function prefixed by `js:\n`. The signature of this function should be:
+
+```ts
+(pc: bigint, args: Array<number | bigint | string | null>) => string
+```
+
+Where:
+
+- `pc`: address in which the pseudoinstruction is being assembled into.
+- `args`: array of evaluated pseudoinstruction arguments in the order they appear in the assembly syntax, where:
+  - `number` is used for expressions that evaluate to a float.
+  - `bigint` is used for expressions that evaluate to an integer.
+  - `string` is used for single identifiers (typically register names).
+  - `null` is used for other expressions that can't be evaluated (expressions containing undefined labels/forward references, or other errors like division by 0).
+- The returned string must be the definition in instruction sequence form, as described in the previous section.
+- The function is allowed to throw any `JS` value that can be converted to a string, which will be displayed in error messages
+
+> [!NOTE]
+> In this form, it's up to the definition whether to throw an error on `null` arguments or simply forward the expression using its field name in the returned string. When possible, the later should be preferred as it allows forward references and provides better errors for the user when the expression contains errors.
+
+Example usage of this method:
+
+```yaml
+pseudoinstructions:
+  base:
+    - name: li
+      fields:
+        - field: rd
+          type: INT-Reg
+          suffix: ","
+        - field: val
+          type: imm-signed
+      definition: |
+        js:
+        const val = args[1];
+        // If the value is small (1 byte signed), use a single instruction
+        if (val !== null && val >= -128 && val <= 127) return "addi rd, x0, val";
+        // Otherwise, use multiple instructions
+        return `
+          lui rd, val >> 8;
+          ori rd, rd, val & 0xFF;
+        `
+      help: Load the immediate, imm, into register rd.
+```
+
+## Modifiers
+
+Modifiers are a set of predefined operators which allow to easily perform bit manipulation on expressions. They allow easily taking a slice of bits from their input. In the assembly code, modifiers can be used in expressions as `%<name>(<expression>)` (e.g. `lui rd, %hi(0xDEADBEEF)`). An example definition is:
+
+```yaml
+modifiers:
+  hi:
+    lower_signed: true
+    output_signed: false
+    range: [12, 32]
+  lo:
+    lower_signed: false
+    output_signed: true
+    range: [0, 12]
+```
+
+Where:
+
+- `range` defines the slice of bits to take, using a right-exclusive range.
+- `lower_signed` defines whether the `start - 1` bit should be added to the result. This is mostly intended for cases where the modifiers are used to split a constant into multiple different parts for loading, when the lower bits will be added as a signed integer to the loaded upper bits.
+- `output_signed` defines whether resulting bit string should be interpreted as a signed or unsigned integer.
 
 <!-- ## TODO: Extensions -->
 <!-- Extensions are supposed to be enabled/disabled, but that's currently not wired up -->
@@ -258,7 +366,7 @@ Now, let's take our architecture and add support for some simple maskable and no
 We'll define two new 1-bit integer registers `MIP` (_Maskable Interrupt Pending_) and `NIP` (_Nonmaskable Interrupt Pending_) that will be set to `1` when an interrupt of the type is pending. We'll also define another 1-bit integer register `IE` to enable (value of `1`) and disable (value of `0`) maskable interrupts.
 
 We just need to add them to `simplearch.yml`:
-```yml
+```yaml
 register_files:
   # ...
   - name: Integer registers
@@ -301,7 +409,7 @@ First, we need to define how to determine if an interrupt happened. CREATOR has 
 > [!NOTE]
 > You don't have to check if interrupts are enabled here, we'll define that later.
 
-```yml
+```yaml
 interrupts:
   check: |
     if (registers.NIP) return InterruptType.Nonmaskable;
@@ -311,7 +419,7 @@ interrupts:
 
 
 Then, we must define how different types of interrupts can be created and cleared. We'll receive the desired type (`InterruptType`) inside the `type` variable:
-```yml
+```yaml
 interrupts:
   # ...
   create: |
@@ -343,7 +451,7 @@ interrupts:
 > `clear` is optional, it gets overriten by `global_clear` if it's not defined
 
 Next, how they can be enabled and disabled, per type (and globally), as well as how to check if they are enabled. For the sake of simplicity, we'll assume nonmaskable interrupts can't be disabled.
-```yml
+```yaml
 # ...
 interrupts:
   # ...
@@ -393,7 +501,7 @@ Finally, we define the custom interrupt handler. This handler will disable inter
 > [!NOTE]
 > Using these CAPI functions is recommended way of doing it, as it allows the application to (secretly) keep track of these interrupts.
 
-```yml
+```yaml
 interrupts:
   handlers:
     custom: |
@@ -411,7 +519,7 @@ interrupts:
 <!-- RETI -->
 
 Many architectures have a specific instruction to return from an interrupt, so let's make one, `reti`. This instruction will clear and enable interrupts and jump back to the address stored in the stack:
-```yml
+```yaml
 instructions:
   base:
     # ...
