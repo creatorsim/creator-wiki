@@ -1,0 +1,91 @@
+/* Reduce stacked margins below image captions */
+.md-typeset figure {
+  margin-bottom: 0.6em;
+}
+
+.md-typeset figcaption {
+  margin: 0.4em auto 0;
+}
+
+.md-typeset figcaption p {
+  margin: 0;
+}
+
+
+/* Constrain pages with hidden sidebars (e.g. home) to the same
+   content width as pages where both sidebars are visible */
+.md-main__inner:has(> .md-sidebar--primary[hidden]) .md-content {
+  max-width: calc(
+    61rem - 2 * 12.1rem - 4 * 0.8rem
+  );
+  margin-inline: auto;
+}
+
+
+/* CREATOR website color schemes */
+
+/* Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #ededed;
+  --md-default-bg-color: #ffffff;
+  --md-accent-fg-color: #2695f3;
+  --md-primary-bg-color: #6c747c;
+  /* keep links readable: they inherit the primary color by default,
+     which is a header surface color in our themes */
+  --md-typeset-a-color: var(--md-accent-fg-color);
+
+  --creator-search-button-bg: #e1e1e1;
+  --creator-search-button-hover-bg: #d3d5d6;
+  --creator-search-button-fg: #454e56;
+  --creator-search-button-divider: #d5d5d5;
+  --creator-tabs-fg: #212121;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #222326;
+  --md-default-bg-color: #262a2d;
+  --md-accent-fg-color: #64b4f6;
+  --md-primary-bg-color: #abb4bc;
+  --md-typeset-a-color: var(--md-accent-fg-color);
+}
+
+/* search bar in light mode */
+[data-md-color-scheme="default"] .md-search__button,
+[data-md-color-scheme="default"] .md-search__button:focus {
+  background-color: var(--creator-search-button-bg);
+}
+
+[data-md-color-scheme="default"] .md-search__button:hover,
+[data-md-color-scheme="default"] .md-search__button:focus:hover {
+  background-color: var(--creator-search-button-hover-bg);
+}
+
+[data-md-color-scheme="default"] .md-search__button,
+[data-md-color-scheme="default"] .md-search__button:focus,
+[data-md-color-scheme="default"] .md-search__button:hover {
+  color: var(--creator-search-button-fg);
+}
+
+[data-md-color-scheme="default"] .md-search__button:before {
+  background-color: var(--creator-search-button-fg);
+}
+
+[data-md-color-scheme="default"] .md-search__button:after {
+  background-color: var(--creator-search-button-divider);
+}
+
+/* Darker tab text in light mode */
+[data-md-color-scheme="default"] .md-tabs {
+  color: var(--creator-tabs-fg);
+}
+
+/* Smaller light/dark mode toggle in the header */
+.md-header__button.md-icon {
+  overflow: visible;
+}
+
+.md-header__button.md-icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
