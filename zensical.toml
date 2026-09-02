@@ -1,0 +1,138 @@
+# Site metadata
+[project]
+site_name = "CREATOR documentation"
+site_description = "Documentation for the CREATOR assembly simulator"
+site_url = "https://creatorsim.github.io/creator-wiki"
+repo_url = "https://github.com/creatorsim/creator"
+repo_name = "creatorsim/creator"
+copyright = "&copy; 2019-2026 CREATOR Team"
+extra_css = ["stylesheets/extra.css"]
+
+# Navigation
+nav = [
+  { "Home" = "index.md" },
+  { "Web User Guide" = [
+    { Overview = "web/overview.md" },
+    "web/user-interface.md",
+    "web/editor-features.md",
+    "web/assemblers.md",
+    "web/execution.md",
+    "web/gateway.md",
+    "web/remote-lab.md",
+    "web/arduino.md",
+  ] },
+  { "CLI User Guide" = [
+    { Overview = "cli/overview.md" },
+    "cli/installation.md",
+    "cli/command-line-options.md",
+    "cli/commands-reference.md",
+    "cli/configuration.md",
+  ] },
+  { "Architecture Guides" = [
+    "architecture/riscv.md",
+    "architecture/mips.md",
+    "architecture/z80.md",
+  ] },
+  { "Teaching Resources" = [
+    { Overview = "teaching-resources/overview.md" },
+    "teaching-resources/validator.md",
+    "teaching-resources/custom-architectures.md",
+    "teaching-resources/remote-lab.md",
+    "teaching-resources/capi.md",
+  ] },
+  { "Development Guide" = [
+    "development/setup.md",
+    "development/overview.md",
+    "development/devices.md",
+    "development/interrupts.md",
+    "development/privileged.md",
+    "development/web.md",
+    "development/vue-tricks.md",
+    "development/version-management.md",
+  ] },
+]
+
+# extra links
+[project.extra]
+homepage = "https://creatorsim.github.io/"
+
+[project.extra.analytics]
+provider = "google"
+property = "G-3RRRR8G333"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/creatorsim"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/docker"
+link = "https://hub.docker.com/u/creatorsim"
+
+
+# Plugins
+[project.plugins.offline]
+
+# Markdown extensions
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+toc.toc_depth = 3
+zensical.extensions.glightbox = {}
+pymdownx.blocks.caption = {}
+pymdownx.details = {}
+pymdownx.highlight.anchor_linenums = true
+pymdownx.superfences = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+
+
+[project.theme]
+variant = "classic"
+logo = "assets/logo.png"
+favicon = "assets/logo.png"
+features = [
+  "content.code.copy",
+  "navigation.footer",
+  "navigation.top",
+  "navigation.tabs",
+]
+
+[project.theme.icon]
+repo = "fontawesome/brands/github"
+
+# auto-light-dark mode palette toggles
+
+# auto
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+primary = "custom"
+accent = "custom"
+
+[project.theme.palette.toggle]
+icon = "fontawesome/solid/circle-half-stroke"
+name = "Switch to light mode"
+
+# light
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+
+[project.theme.palette.toggle]
+icon = "fontawesome/solid/sun"
+name = "Switch to dark mode"
+
+# dark
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+
+[project.theme.palette.toggle]
+icon = "fontawesome/solid/moon"
+name = "Switch to system preference"

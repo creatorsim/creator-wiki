@@ -1,24 +1,16 @@
 # CREATOR documentation
 This repository contains documentation for the [CREATOR project](https://creatorsim.github.io).
 
-The webpage is generated using [Honkit](https://honkit.netlify.app/).
+The webpage is generated using [Zensical](https://zensical.org).
 
-To build the webpage, with [Bun](https://bun.sh/)[^1], run:
+To build the webpage, with [uv](https://docs.astral.sh/uv/), run:
 ```
-bun install
-bun run build
-```
-
-To deploy it, with [Bun](https://bun.sh/)[^1], run:
-```
-bun serve
+uv run zensical build
 ```
 
+The output is generated in the `site/` folder.
 
-To generate a PDF file, with [Bun](https://bun.sh/)[^1], run:
+To preview it locally (with live reload), run:
 ```
-bun pdf
+uv run zensical serve
 ```
-
-
-[^1]: Other Node package managers such as [NPM](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), etc. _should_ work as well.
